@@ -5,7 +5,7 @@ const app = express()
 app.set('view engine', 'ejs')
 
 // Middleware
-app.use(express.static('public'))
+app.use(express.static('www'))
 
 // Routes
 app.get('/', function(req, res) {
