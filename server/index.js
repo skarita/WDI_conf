@@ -3,6 +3,10 @@ const app = express()
 const path = require('path')
 const apiKey = 'f0k6u6nZrDpsrzV_RVdB3I_HVggR4bu4'
 const fetch = require('node-fetch')
+const stripe = require("stripe")("sk_test_ySnrhITknKLkb1NjIbiSWYqI")
+const bodyparser = require('body-parser')
+
+app.use(express.static('../scripts'));
 
 // Routes
 app.get('/', function(req, res) {
@@ -18,6 +22,34 @@ app.get('/test', function(req, res) {
 })
 
 })
+
+app.post('/pay', bodyparser(), function(request, response) {
+
+  // Get the credit card details submitted by the form
+  var token = request.body.stripeToken; // Using Express
+  console.log(token);
+
+  // Create a charge: this will charge the user's card
+  var charge = stripe.charges.create({
+    amount: 1000, // Amount in cents
+    currency: "aud",
+    source: token,
+    description: "Example charge"
+  }, function(err, charge) {
+    if (err && err.type === 'StripeCardError') {
+      // The card has been declined
+      console.log(err);
+      console.log(err.message);
+      console.log(err.type);
+    } else {
+      console.log('Payment was successful');
+    }
+  });
+
+  console.log(charge);
+
+});
+
 // Start server
 app.listen(3030)
 

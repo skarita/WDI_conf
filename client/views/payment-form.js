@@ -3,7 +3,6 @@ const confirmationForm = require('./confirmation-form.js')
 const stripeResponseHandler = require('../scripts/stripe-payment.js')
 
 
-
 var renderPaymentForm = function() {
 
   $('<div id="payment-form">').appendTo('body')
@@ -16,7 +15,7 @@ var renderPaymentForm = function() {
 
   $('<h1>').text('Payment Details').appendTo('#payment-form')
 
-  $('<form id="payment-stripe-form">').attr('method', 'post').attr('action', '/pay').appendTo('#payment-form')
+  $('<form id="payment-stripe-form">').attr('method', 'post').attr('action', 'http://localhost:3030/pay').appendTo('#payment-form')
 
   $('<input placeholder="Name on Card">').appendTo('#payment-stripe-form')
   $('<input placeholder="Card Number">').attr('data-stripe', 'number').appendTo('#payment-stripe-form')
@@ -24,7 +23,7 @@ var renderPaymentForm = function() {
   $('<input placeholder="CSV">').attr('data-stripe', 'cvc').appendTo('#payment-stripe-form')
 
   $('<h2>').text('Total: $500').appendTo('#payment-form')
-  $('<button>').text('Submit').attr('id', 'submit-btn').appendTo('#payment-form')
+  $('<input type="submit" class="submit" value="Submit Payment">').attr('id', 'submit-btn').appendTo('#payment-form')
   $('<button>').text('Cancel').attr('id', 'cancel-btn').appendTo('#payment-form')
 
   $('#submit-btn').click(function() {
@@ -36,7 +35,9 @@ var renderPaymentForm = function() {
     // confirmationForm()
 
     var $form = $('#payment-stripe-form');
+
     $form.submit(function(event) {
+      console.log('hello');
       // Disable the submit button to prevent repeated clicks:
       $form.find('.submit').prop('disabled', true);
 
