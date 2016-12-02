@@ -1,15 +1,10 @@
 const express = require('express')
 const app = express()
-
-// Settings
-app.set('view engine', 'ejs')
-
-// Middleware
-app.use(express.static('www'))
+const path = require('path')
 
 // Routes
 app.get('/', function(req, res) {
-  res.render('index')
+  res.sendFile(path.join(__dirname + '/index.html'))
 })
 
 // Start server
