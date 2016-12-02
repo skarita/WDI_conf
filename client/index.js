@@ -1,10 +1,5 @@
 require('./styles/main.scss')
+const paymentForm = require('./views/payment-form.js')
 const $ = require('jquery')
 
-console.log('testing')
-
-var jason3 = () => {
-  return true
-}
-
-$('#root').text('hello world')
+$('#root').append(paymentForm())
