@@ -15,29 +15,27 @@ var renderPaymentForm = function() {
 
   $('<h1>').text('Payment Details').appendTo('#payment-form')
 
-  $('<form id="payment-stripe-form">').attr('method', 'post').attr('action', 'http://localhost:3030/pay').appendTo('#payment-form')
+  $('<form id="payment-stripe-form">').attr('method', 'post').attr('action', '/pay').appendTo('#payment-form')
 
   $('<input placeholder="Name on Card">').appendTo('#payment-stripe-form')
   $('<input placeholder="Card Number">').attr('data-stripe', 'number').appendTo('#payment-stripe-form')
-  $('<input placeholder="Expiry">').attr('data-stripe', 'exp_month').appendTo('#payment-stripe-form')
+  $('<input placeholder="Expiry Month">').attr('data-stripe', 'exp_month').appendTo('#payment-stripe-form')
+  $('<input placeholder="Expiry Year">').attr('data-stripe', 'exp_year').appendTo('#payment-stripe-form')
   $('<input placeholder="CSV">').attr('data-stripe', 'cvc').appendTo('#payment-stripe-form')
+  $('<input type="submit" class="submit" value="Submit Payment">').attr('id', 'submit-btn').appendTo('#payment-stripe-form')
+  $('<button>').text('Cancel').attr('id', 'cancel-btn').appendTo('#payment-stripe-form')
 
   $('<h2>').text('Total: $500').appendTo('#payment-form')
-  $('<input type="submit" class="submit" value="Submit Payment">').attr('id', 'submit-btn').appendTo('#payment-form')
-  $('<button>').text('Cancel').attr('id', 'cancel-btn').appendTo('#payment-form')
+
+  $('<span class="payment-errors">').appendTo('#payment-form')
 
   $('#submit-btn').click(function() {
 
     console.log('clicked submit button');
 
-    // $('#payment-form').remove()
-    //
-    // confirmationForm()
-
     var $form = $('#payment-stripe-form');
 
     $form.submit(function(event) {
-      console.log('hello');
       // Disable the submit button to prevent repeated clicks:
       $form.find('.submit').prop('disabled', true);
 
@@ -46,9 +44,8 @@ var renderPaymentForm = function() {
 
       // Prevent the form from being submitted:
       return false;
+
     });
-
-
 
   });
 
