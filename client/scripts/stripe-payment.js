@@ -1,3 +1,4 @@
+const $ = require('jquery')
 
 var stripeResponseHandler = function (status, response) {
 
@@ -12,13 +13,14 @@ var stripeResponseHandler = function (status, response) {
   if (response.error) { // Problem!
 
     // Show the errors on the form:
-    $form.find('.payment-errors').text(response.error.message);
+    $('.payment-errors').text(response.error.message);
     $form.find('.submit').prop('disabled', false); // Re-enable submission
 
   } else { // Token was created!
-
+    console.log('token created');
     // Get the token ID:
     var token = response.id;
+
     console.log(token);
 
     // Insert the token ID into the form so it gets submitted to the server:
