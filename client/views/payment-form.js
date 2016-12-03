@@ -5,7 +5,7 @@ const stripeResponseHandler = require('../scripts/stripe-payment.js')
 
 var renderPaymentForm = function() {
 
-  $('<div id="payment-form">').appendTo('body')
+  $('<div id="payment-form">').appendTo('#root')
 
   $('<h1>').text('Your Details').appendTo('#payment-form')
 
@@ -15,7 +15,7 @@ var renderPaymentForm = function() {
 
   $('<h1>').text('Payment Details').appendTo('#payment-form')
 
-  $('<form id="payment-stripe-form">').attr('method', 'post').attr('action', '/pay').appendTo('#payment-form')
+  $('<form id="payment-stripe-form">').attr('method', 'post').attr('action', 'http://localhost:3030/pay').appendTo('#payment-form')
 
   $('<input placeholder="Name on Card">').appendTo('#payment-stripe-form')
   $('<input placeholder="Card Number">').attr('data-stripe', 'number').appendTo('#payment-stripe-form')

@@ -47,7 +47,7 @@ app.post('/pay', bodyparser(), function(request, response) {
 
   console.log(charge);
 
-  response.redirect('/');
+  response.redirect('http://localhost:8080/');
 
 });
 
