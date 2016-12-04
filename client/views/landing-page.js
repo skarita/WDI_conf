@@ -1,6 +1,7 @@
 const $ = require('jquery')
 const renderPaymentForm = require('./payment-form.js')
 
+
 var renderLandingPage = function() {
 
   $('<div class="home-wrapper">').appendTo('body')
@@ -10,7 +11,7 @@ var renderLandingPage = function() {
   $('<li> <a id="first">').appendTo('ul')
   $('<li> <a id="second">').appendTo('ul')
   $('<li> <a id="third">').appendTo('ul')
-  $('<li> <a id="fourth">').appendTo('ul')
+  $('<li class="nav-ticket-btn"> <a id="fourth">').appendTo('ul')
   $('#first').text('Speakers')
   $('#second').text('Sponsors')
   $('#third').text('Location')
@@ -18,7 +19,12 @@ var renderLandingPage = function() {
 
   $('<h1>').text('WDI CONF 2017').appendTo('.home-top-wrapper')
 
-  $('<a class="buy-ticket-btn">').text('Buy Tickets').appendTo('.home-top-wrapper')
+  $('<section class="home-middle-wrapper">').appendTo('.home-wrapper')
+  $('<div class="home-middle-location">').appendTo('.home-middle-wrapper')
+  $('<h2>').text('Melbourne').appendTo('.home-middle-location')
+  $('<h3>').text('General Assembly').appendTo('.home-middle-location')
+
+  $('<a class="buy-ticket-btn">').text('Buy Tickets').appendTo('.home-wrapper')
 
   $('.buy-ticket-btn').click(function() {
 
