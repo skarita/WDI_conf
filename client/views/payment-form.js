@@ -9,8 +9,8 @@ var renderPaymentForm = function() {
 
   $('<h1>').text('Your Details').appendTo('#payment-form')
 
-  $('<input placeholder="Full Name">').appendTo('#payment-form')
-  $('<input placeholder="Email">').appendTo('#payment-form')
+  $('<input placeholder="Full Name" name="name">').appendTo('#payment-form')
+  $('<input placeholder="Email" name="email">').appendTo('#payment-form')
   $('<input placeholder="Confirm Email">').appendTo('#payment-form')
 
   $('<h1>').text('Payment Details').appendTo('#payment-form')

@@ -27,7 +27,7 @@ app.get('/test', function(req, res) {
 app.post('/pay', bodyparser(), function(request, response) {
 
   // Get the credit card details submitted by the form
-  var token = request.body.stripeToken; // Using Express
+  var token = request.query.stripeToken; // Using Express
 
   // Create a charge: this will charge the user's card
   var charge = stripe.charges.create({
@@ -38,16 +38,11 @@ app.post('/pay', bodyparser(), function(request, response) {
   }, function(err, charge) {
     if (err && err.type === 'StripeCardError') {
       // The card has been declined
-      console.log(err);
-      console.log(err.type);
+      response.json(err);
     } else {
-      console.log('Payment was successful');
+      response.json(charge);
     }
   });
-
-  console.log(charge);
-
-  response.redirect('http://localhost:8080/');
 
 });
 
