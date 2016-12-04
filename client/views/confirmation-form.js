@@ -2,7 +2,7 @@ const $ = require('jquery')
 
 var renderConfirmation = function() {
 
-  $('<div id="confirmation-form">').appendTo('body')
+  $('<div id="confirmation-form">').appendTo('#root')
 
   $('<h1>').text('Successful').appendTo('#confirmation-form')
 

@@ -1,4 +1,5 @@
 const $ = require('jquery')
+const renderConfirmation = require('./../views/confirmation-form')
 
 var stripeResponseHandler = function (status, response) {
 
@@ -27,7 +28,25 @@ var stripeResponseHandler = function (status, response) {
     $form.append($('<input type="hidden" name="stripeToken">').val(token));
 
     // Submit the form:
-    $form.get(0).submit();
+    // $form.get(0).submit();
+
+    var formData = {
+      stripeToken: token,
+      name: $('input[name="name"]').val(),
+      email: $('input[name="email"]').val()
+    }
+
+    console.log(formData)
+
+    $.ajax('http://localhost:3030/pay', {
+      method: 'post',
+      data: formData
+    }).done(function(res) {
+      console.log(res)
+      $('#root').html('')
+      renderConfirmation()
+    })
+
   }
 };
 
