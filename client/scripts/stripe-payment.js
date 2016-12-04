@@ -31,9 +31,9 @@ var stripeResponseHandler = function (status, response) {
     // $form.get(0).submit();
 
     var formData = {
-      "stripeToken": token,
-      "name": $('input[name="name"]').val(),
-      "email": $('input[name="email"]').val()
+      stripeToken: token,
+      name: $('input[name="name"]').val(),
+      email: $('input[name="email"]').val()
     }
 
     console.log(formData)

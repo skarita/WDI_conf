@@ -5,6 +5,7 @@ const apiKey = 'f0k6u6nZrDpsrzV_RVdB3I_HVggR4bu4'
 const fetch = require('node-fetch')
 const stripe = require("stripe")("sk_test_ySnrhITknKLkb1NjIbiSWYqI")
 const bodyparser = require('body-parser')
+const sendConfEmail = require('./scripts/send-email')
 
 app.use(express.static('../scripts'));
 app.use(express.static('../views'));
@@ -27,7 +28,7 @@ app.get('/test', function(req, res) {
 app.post('/pay', bodyparser(), function(request, response) {
 
   // Get the credit card details submitted by the form
-  var token = request.query.stripeToken; // Using Express
+  var token = request.body.stripeToken; // Using Express
 
   // Create a charge: this will charge the user's card
   var charge = stripe.charges.create({
@@ -38,12 +39,15 @@ app.post('/pay', bodyparser(), function(request, response) {
   }, function(err, charge) {
     if (err && err.type === 'StripeCardError') {
       // The card has been declined
-      response.json(err);
+      console.log(err);
+      response.json(err)
     } else {
+      console.log(charge)
+      sendConfEmail(request.body.email)
       response.json(charge);
     }
   });
-
+  
 });
 
 // Start server
