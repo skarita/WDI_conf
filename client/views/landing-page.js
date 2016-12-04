@@ -4,7 +4,7 @@ const renderPaymentForm = require('./payment-form.js')
 
 var renderLandingPage = function() {
 
-  $('<div class="home-wrapper">').appendTo('body')
+  $('<div class="home-wrapper">').appendTo('#root')
   $('<section class="home-top-wrapper">').appendTo('.home-wrapper')
   $('<nav class="home-nav">').appendTo('.home-top-wrapper')
   $('<ul>').appendTo('.home-nav')

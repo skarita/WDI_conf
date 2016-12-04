@@ -5,6 +5,7 @@ const apiKey = 'f0k6u6nZrDpsrzV_RVdB3I_HVggR4bu4'
 const fetch = require('node-fetch')
 const stripe = require("stripe")("sk_test_ySnrhITknKLkb1NjIbiSWYqI")
 const bodyparser = require('body-parser')
+const sendConfEmail = require('./scripts/send-email')
 
 app.use(express.static('../scripts'));
 app.use(express.static('../views'));
@@ -39,16 +40,14 @@ app.post('/pay', bodyparser(), function(request, response) {
     if (err && err.type === 'StripeCardError') {
       // The card has been declined
       console.log(err);
-      console.log(err.type);
+      response.json(err)
     } else {
-      console.log('Payment was successful');
+      console.log(charge)
+      sendConfEmail(request.body.email)
+      response.json(charge);
     }
   });
-
-  console.log(charge);
-
-  response.redirect('/');
-
+  
 });
 
 // Start server
