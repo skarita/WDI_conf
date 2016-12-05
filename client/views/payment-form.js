@@ -5,8 +5,9 @@ const stripeResponseHandler = require('../scripts/stripe-payment.js')
 
 var renderPaymentForm = function() {
 
-  $('<div id="payment-form">').appendTo('#root')
+  $('<div id="payment-form">').appendTo('#payment-form-modal')
 
+  $('<span class="close-btn">').text('X').appendTo('#payment-form-modal')
   $('<h1>').text('Your Details').appendTo('#payment-form')
 
   $('<input type="number" value="1" name="quantity">').appendTo('#payment-form')
@@ -24,11 +25,18 @@ var renderPaymentForm = function() {
   $('<input placeholder="Expiry Year">').attr('data-stripe', 'exp_year').appendTo('#payment-stripe-form')
   $('<input placeholder="CSV">').attr('data-stripe', 'cvc').appendTo('#payment-stripe-form')
   $('<input type="submit" class="submit" value="Submit Payment">').attr('id', 'submit-btn').appendTo('#payment-stripe-form')
-  $('<button>').text('Cancel').attr('id', 'cancel-btn').appendTo('#payment-stripe-form')
+  $('<form action="/" class="home-link">').appendTo('#payment-stripe-form')
+  $('<button>').text('Cancel').attr('id', 'cancel-btn').appendTo('.home-link')
 
   $('<h2 id="price">').text('Total: $500').appendTo('#payment-form')
 
   $('<span class="payment-errors">').appendTo('#payment-form')
+
+  $('.close-btn').click(function() {
+
+    $('#modal-wrapper').remove();
+
+  });
 
   $('#submit-btn').click(function() {
 
