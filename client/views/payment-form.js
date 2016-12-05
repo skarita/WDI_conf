@@ -19,7 +19,7 @@ var renderPaymentForm = function() {
   $('<form id="payment-stripe-form">').attr('method', 'post').attr('action', 'http://localhost:3030/pay').appendTo('#payment-form')
 
   $('<input placeholder="Name on Card">').appendTo('#payment-stripe-form')
-  $('<input placeholder="Card Number">').attr('data-stripe', 'number').appendTo('#payment-stripe-form')
+  $('<input placeholder="Card Number" value="4242424242424242">').attr('data-stripe', 'number').appendTo('#payment-stripe-form')
   $('<input placeholder="Expiry Month">').attr('data-stripe', 'exp_month').appendTo('#payment-stripe-form')
   $('<input placeholder="Expiry Year">').attr('data-stripe', 'exp_year').appendTo('#payment-stripe-form')
   $('<input placeholder="CSV">').attr('data-stripe', 'cvc').appendTo('#payment-stripe-form')
@@ -52,7 +52,7 @@ var renderPaymentForm = function() {
   });
 
   $('input[name="quantity"]').on('input', function() {
-    console.log($(this).val());
+    // console.log($(this).val());
     $('#price').text("Total: $" + $(this).val()*500)
   });
 

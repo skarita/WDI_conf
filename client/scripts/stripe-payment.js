@@ -1,5 +1,5 @@
 const $ = require('jquery')
-const renderConfirmation = require('./../views/confirmation-form')
+const renderSeats = require('./../views/reserve-seats')
 
 var stripeResponseHandler = function (status, response) {
 
@@ -45,7 +45,7 @@ var stripeResponseHandler = function (status, response) {
     }).done(function(res) {
       console.log(res)
       $('#root').html('')
-      renderConfirmation()
+      renderSeats()
     })
 
   }
