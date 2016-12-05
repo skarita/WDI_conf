@@ -26,13 +26,13 @@ app.get('/test', function(req, res) {
 })
 
 app.post('/pay', bodyparser(), function(request, response) {
-
+  console.log(request.body.quantity * 50000);
   // Get the credit card details submitted by the form
   var token = request.body.stripeToken; // Using Express
 
   // Create a charge: this will charge the user's card
   var charge = stripe.charges.create({
-    amount: 1000, // Amount in cents
+    amount: request.body.quantity * 50000, // Amount in cents
     currency: "aud",
     source: token,
     description: "Example charge"
@@ -60,7 +60,7 @@ app.post('/pay', bodyparser(), function(request, response) {
     }).then(function(json) {
       console.log(json)
     })
-      
+
 });
 
 // Start server

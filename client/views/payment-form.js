@@ -9,6 +9,7 @@ var renderPaymentForm = function() {
 
   $('<h1>').text('Your Details').appendTo('#payment-form')
 
+  $('<input type="number" value="1" name="quantity">').appendTo('#payment-form')
   $('<input placeholder="Full Name" name="name">').appendTo('#payment-form')
   $('<input placeholder="Email" name="email">').appendTo('#payment-form')
   $('<input placeholder="Confirm Email">').appendTo('#payment-form')
@@ -25,7 +26,7 @@ var renderPaymentForm = function() {
   $('<input type="submit" class="submit" value="Submit Payment">').attr('id', 'submit-btn').appendTo('#payment-stripe-form')
   $('<button>').text('Cancel').attr('id', 'cancel-btn').appendTo('#payment-stripe-form')
 
-  $('<h2>').text('Total: $500').appendTo('#payment-form')
+  $('<h2 id="price">').text('Total: $500').appendTo('#payment-form')
 
   $('<span class="payment-errors">').appendTo('#payment-form')
 
@@ -47,6 +48,12 @@ var renderPaymentForm = function() {
 
     });
 
+
+  });
+
+  $('input[name="quantity"]').on('input', function() {
+    console.log($(this).val());
+    $('#price').text("Total: $" + $(this).val()*500)
   });
 
 }
