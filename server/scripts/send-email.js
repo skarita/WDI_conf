@@ -1,3 +1,5 @@
+const key = require('./secret-sauce').sendGridKey
+
 const sendConfEmail = function(user_email) {
   var helper = require('sendgrid').mail;
   var from_email = new helper.Email('test@example.com');
@@ -6,8 +8,7 @@ const sendConfEmail = function(user_email) {
   var content = new helper.Content('text/plain', 'Hello, Email!');
   var mail = new helper.Mail(from_email, subject, to_email, content);
 
-  var sendgridKey = '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'
-  var sg = require('sendgrid')(sendgridKey);
+  var sg = require('sendgrid')(key);
   var request = sg.emptyRequest({
     method: 'POST',
     path: '/v3/mail/send',

@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const path = require('path')
-const apiKey = 'f0k6u6nZrDpsrzV_RVdB3I_HVggR4bu4'
+const mLabKey = require('./scripts/secret-sauce').mLabKey
 const fetch = require('node-fetch')
 const stripe = require("stripe")("sk_test_ySnrhITknKLkb1NjIbiSWYqI")
 const bodyparser = require('body-parser')
@@ -16,7 +16,7 @@ app.get('/', function(req, res) {
 })
 
 app.get('/test', function(req, res) {
-  fetch('https://api.mlab.com/api/1/databases/wdi_conf/collections/test?apiKey=' + apiKey)
+  fetch('https://api.mlab.com/api/1/databases/wdi_conf/collections/test?apiKey=' + mLabKey)
   .then(function(res) {
   return res.json()
 }).then(function(json) {
