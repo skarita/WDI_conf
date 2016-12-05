@@ -3,6 +3,7 @@
 $header-font: 'Sarala', sans-serif;
 $main-font: 'Dosis', sans-serif;
 $primary-color: #DB700A;
+$secondary-color: #FFFFFF;
 
 .home-wrapper {
   width: 100%;
@@ -19,9 +20,9 @@ $primary-color: #DB700A;
       width: 50%;
       display: block;
       margin: 0 auto;
-      border-top: 2px solid white;
-      border-bottom: 2px solid white;
-      color: white;
+      border-top: 2px solid $secondary-color;
+      border-bottom: 2px solid $secondary-color;
+      color: $secondary-color;
 
       h2 {
         font-size: 1.7em;
@@ -44,11 +45,12 @@ $primary-color: #DB700A;
     text-align: center;
     border-radius: 5px;
     font-size: 1.2em;
-    color: white;
+    color: $secondary-color;
   }
 
   .buy-ticket-btn:hover {
     animation: bounce 1s;
+    cursor: pointer;
   }
 
   .home-top-wrapper {
@@ -60,7 +62,7 @@ $primary-color: #DB700A;
       margin: 2em 0 .5em 0;
       font-size: 3em;
       font-family: $header-font;
-      color: white;
+      color: $secondary-color;
     }
 
     .home-nav {
@@ -68,7 +70,7 @@ $primary-color: #DB700A;
 
       ul li {
         display: inline-block;
-        color: white;
+        color: $secondary-color;
         margin: .8%;
         padding: 5%;
         width: 22.5%;
@@ -82,7 +84,7 @@ $primary-color: #DB700A;
         }
 
         #fourth:hover {
-          color: white;
+          color: $secondary-color;
         }
       }
 
@@ -95,6 +97,7 @@ $primary-color: #DB700A;
 
       .nav-ticket-btn:hover {
         animation: bounce 1s;
+        cursor: pointer;
       }
     }
   }

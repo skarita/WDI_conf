@@ -1,0 +1,34 @@
+
+$header-font: 'Sarala', sans-serif;
+$main-font: 'Dosis', sans-serif;
+$primary-color: #DB700A;
+$secondary-color: #FFFFFF;
+
+#modal-wrapper {
+  width: 100%;
+
+  .modal {
+      position: fixed; /* Stay in place */
+      display: block;
+      z-index: 1; /* Sit on top */
+      top: 0;
+      width: 96.5%; /* Full width */
+      height: 95.5%; /* Full height */
+      overflow: scroll; /* Enable scroll if needed */
+      background-color: $secondary-color; /* Black w/ opacity */
+      margin: 2% 2.5% 2% 2%;
+      border-radius: 5px;
+
+      .close-btn {
+        position: fixed;
+        top: 1.2em;
+        right: 1.2em;
+        font-size: 1.5em;
+      }
+
+      .close-btn:hover {
+        cursor: pointer;
+      }
+  }
+
+}

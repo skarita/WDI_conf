@@ -5,8 +5,9 @@ const stripeResponseHandler = require('../scripts/stripe-payment.js')
 
 var renderPaymentForm = function() {
 
-  $('<div id="payment-form">').appendTo('#root')
+  $('<div id="payment-form">').appendTo('#payment-form-modal')
 
+  $('<span class="close-btn">').text('X').appendTo('#payment-form-modal')
   $('<h1>').text('Your Details').appendTo('#payment-form')
 
   $('<input placeholder="Full Name" name="name">').appendTo('#payment-form')
@@ -29,6 +30,12 @@ var renderPaymentForm = function() {
   $('<h2>').text('Total: $500').appendTo('#payment-form')
 
   $('<span class="payment-errors">').appendTo('#payment-form')
+
+  $('.close-btn').click(function() {
+
+    $('#modal-wrapper').remove();
+
+  });
 
   $('#submit-btn').click(function() {
 
