@@ -40,6 +40,9 @@ var renderPaymentForm = function() {
 
   $('#submit-btn').click(function() {
 
+    $('#payment-form').hide();
+    $('<div class="loader">').appendTo('#modal-wrapper');
+
     console.log('clicked submit button');
 
     var $form = $('#payment-stripe-form');

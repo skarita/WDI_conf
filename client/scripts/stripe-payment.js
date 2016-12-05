@@ -13,6 +13,9 @@ var stripeResponseHandler = function (status, response) {
 
   if (response.error) { // Problem!
 
+    $('.loader').remove();
+    $('#payment-form').show();
+
     // Show the errors on the form:
     $('.payment-errors').text(response.error.message);
     $form.find('.submit').prop('disabled', false); // Re-enable submission
@@ -24,6 +27,9 @@ var stripeResponseHandler = function (status, response) {
 
     console.log(token);
 
+    $('.loader').remove();
+    $('#payment-form').show();
+    
     // Insert the token ID into the form so it gets submitted to the server:
     $form.append($('<input type="hidden" name="stripeToken">').val(token));
 
