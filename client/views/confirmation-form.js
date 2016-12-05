@@ -8,7 +8,8 @@ var renderConfirmation = function() {
 
   $('<p>').text('Your payment was successful. Your ticket has been emailed to your email').appendTo('#confirmation-form')
 
-  $('<button>').text('Home').attr('id', 'home-btn').appendTo('#confirmation-form')
+  $('<form action="/" class="home">').appendTo('#confirmation-form')
+  $('<button>').text('Home').attr('id', 'home-btn').appendTo('.home')
 
 }
 

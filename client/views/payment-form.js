@@ -23,7 +23,8 @@ var renderPaymentForm = function() {
   $('<input placeholder="Expiry Year">').attr('data-stripe', 'exp_year').appendTo('#payment-stripe-form')
   $('<input placeholder="CSV">').attr('data-stripe', 'cvc').appendTo('#payment-stripe-form')
   $('<input type="submit" class="submit" value="Submit Payment">').attr('id', 'submit-btn').appendTo('#payment-stripe-form')
-  $('<button>').text('Cancel').attr('id', 'cancel-btn').appendTo('#payment-stripe-form')
+  $('<form action="/" class="home-link">').appendTo('#payment-stripe-form')
+  $('<button>').text('Cancel').attr('id', 'cancel-btn').appendTo('.home-link')
 
   $('<h2>').text('Total: $500').appendTo('#payment-form')
 
