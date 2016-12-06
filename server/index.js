@@ -25,20 +25,32 @@ app.get('/testget', function(req, res) {
   })
 })
 
-app.get('/testupdate', function(req, res) {
+app.post('/reserve', bodyparser(), function(req, res) {
+  console.log(
+    'https://api.mlab.com/api/1/databases/wdi_conf/collections/talks?apiKey='
+    + mLabKey
+    + '&q={"presenter":"'
+    + req.body.presenter
+    + '"}'
+  )
+  console.log(JSON.stringify({
+        $set: req.body.reserved
+      }))
   fetch(
     'https://api.mlab.com/api/1/databases/wdi_conf/collections/talks?apiKey='
     + mLabKey
-    + '&q={"presenter":"Elon Musk"}', {
+    + '&q={"presenter":"'
+    + req.body.presenter
+    + '"}', {
       method: 'PUT',
       body: JSON.stringify({
-        $set: { "seat.a.6": "reserved", "seat.a.7": "reserved" }
+        $set: req.body.reserved
       }),
       headers: {'Content-Type' : 'application/json'}
-      }).then(function(res) {
-        return res.json()
+      }).then(function(response) {
+        return response.json()
       }).then(function(json) {
-        console.log(json)
+        res.json(json)
     })
 })
 
