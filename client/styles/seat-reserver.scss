@@ -1,0 +1,16 @@
+.seat {
+  display: inline-block;
+  border: 2px solid black;
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+  margin-right: 5px;
+}
+
+.reserved {
+  background: grey;
+}
+
+.seat-selected {
+  background: blue;
+}

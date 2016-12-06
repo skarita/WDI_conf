@@ -78,6 +78,7 @@ $secondary-color: #FFFFFF;
         text-align: center;
         vertical-align: middle;
         transition: .1s;
+        cursor: pointer;
 
         a:hover {
           color: $primary-color;
