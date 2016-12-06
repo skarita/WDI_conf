@@ -8,9 +8,11 @@ var renderPaymentForm = function() {
 
   $('<div id="payment-form">').appendTo('#payment-form-modal')
 
-  $('<span class="close-btn">').text('X').appendTo('#payment-form-modal')
+  $('<span class="close-btn">').text('✘').appendTo('#payment-form-modal')
   $('<label class="num-ticket">').text('Number of Tickets: ').appendTo('#payment-form')
-  $('<input class="num-input" type="number" value="1" name="quantity">').appendTo('#payment-form')
+  $('<input id="input-qty" class="num-input" type="text" value="1" name="quantity">').appendTo('#payment-form')
+  $('<span id=plus-btn>').text("+").appendTo('#payment-form')
+  $('<span id=less-btn>').text("-").appendTo('#payment-form')
   $('<h2 id="price">').text('Total: $500').appendTo('#payment-form')
   $('<hr>').appendTo('#payment-form')
 
@@ -26,10 +28,10 @@ var renderPaymentForm = function() {
   $('<form id="payment-stripe-form">').attr('method', 'post').attr('action', 'http://localhost:3030/pay').appendTo('#payment-form')
 
   $('<input class="input-form" placeholder="Name on Card">').appendTo('#payment-stripe-form')
-  $('<input class="input-form" placeholder="Card Number" value="4242424242424242">').attr('data-stripe', 'number').appendTo('#payment-stripe-form')
-  $('<input placeholder="Expiry Month">').attr('data-stripe', 'exp_month').appendTo('#payment-stripe-form')
-  $('<input placeholder="Expiry Year">').attr('data-stripe', 'exp_year').appendTo('#payment-stripe-form')
-  $('<input class="input-form" placeholder="CSV">').attr('data-stripe', 'cvc').appendTo('#payment-stripe-form')
+  $('<input id="cardNumber" class="input-form" placeholder="Card Number" value="4242424242424242">').attr('data-stripe', 'number').appendTo('#payment-stripe-form')
+  $('<input class="expiry-input" placeholder="Expiry Month">').attr('data-stripe', 'exp_month').appendTo('#payment-stripe-form')
+  $('<input class="expiry-input" placeholder="Expiry Year">').attr('data-stripe', 'exp_year').appendTo('#payment-stripe-form')
+  $('<input id="csv-input" class="expiry-input" placeholder="CSV">').attr('data-stripe', 'cvc').appendTo('#payment-stripe-form')
   $('<hr>').appendTo('#payment-stripe-form')
 
   $('<input type="submit" class="submit" value="Submit Payment">').attr('id', 'submit-btn').appendTo('#payment-stripe-form')
@@ -83,10 +85,44 @@ var renderPaymentForm = function() {
     }
   });
 
+// to prevent user from entering other characters aprart from a number
+  $('input[name="quantity"], #cardNumber, .expiry-input, #csv-input').keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+             // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+             // Allow: Ctrl+C
+            (e.keyCode == 67 && e.ctrlKey === true) ||
+             // Allow: Ctrl+X
+            (e.keyCode == 88 && e.ctrlKey === true) ||
+             // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+         // let it happen, don't do anything
+         return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+          e.preventDefault();
+        }
+    });
+
+  $('#plus-btn').on('click', function() {
+    console.log("adding");
+    $('#input-qty').val(Number($('#input-qty').val())+1);
+  });
+
+  $('#less-btn').on('click', function() {
+    console.log("subtracting");
+    if ($('#input-qty').val() > 0) {
+      $('#input-qty').val(Number($('#input-qty').val())-1);
+    }
+  });
+
   $('input[name="quantity"]').on('input', function() {
-    // console.log($(this).val());
+    console.log($(this).val());
     $('#price').text("Total: $" + $(this).val()*500)
   });
+
 }
 
 module.exports = renderPaymentForm
