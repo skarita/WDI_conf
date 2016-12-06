@@ -1,8 +1,6 @@
 const $ = require('jquery')
 
-var renderSeats = function() {
-
-  var talks = {}
+var renderSeats = function(talks) {
 
   $('<div id="wrapper" class="modal">').appendTo('#modal-wrapper');
   $('<h5>').text('Payment Sucessful').appendTo('#wrapper');
@@ -10,7 +8,7 @@ var renderSeats = function() {
   $('<button>').text('Skip').appendTo('#wrapper');
   $('<div>').text('stage').appendTo('#wrapper');
 
-  $.each(talks.seats, function(i, obj) {
+  $.each(talks[0].seat, function(i, obj) {
     var $row = $('<div>')
     Object.keys(obj).forEach(function(key) {
       var $seat = $('<div class="seat">')

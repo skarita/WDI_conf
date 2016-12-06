@@ -7,7 +7,6 @@ const stripe = require("stripe")("sk_test_ySnrhITknKLkb1NjIbiSWYqI")
 const bodyparser = require('body-parser')
 const sendConfEmail = require('./scripts/send-email')
 const saveToDb = require('./scripts/save-user-to-db')
-const fetchSeats = require('./scripts/fetch-seats')
 
 app.use(express.static('../scripts'));
 app.use(express.static('../views'));
