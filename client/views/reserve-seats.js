@@ -16,6 +16,10 @@ var renderSeats = function() {
     ]
   }
 
+  for (seat in talk) {
+    console.log(talk[seat]);
+  }
+  debugger
 
   $('<div id="wrapper">').appendTo('#root');
   $('<h5>').text('Payment Sucessful').appendTo('#wrapper');
