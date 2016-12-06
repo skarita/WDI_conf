@@ -22,13 +22,16 @@ var renderSeats = function() {
   $('<div>').text('stage').appendTo('#wrapper');
 
   $.each(talk.seats, function(i, obj) {
-    var $row = $('<div id="test">')
+    var $row = $('<div>')
     Object.keys(obj).forEach(function(key) {
-      $('<span>').text(key + " " + obj[key]).appendTo($row);
+      var $seat = $('<div class="seat">')
+      if (obj[key] === 'reserved') {
+        $seat.addClass('reserved')
+      }
+      $seat.appendTo($row)
     })
     $row.appendTo('#wrapper');
   });
-
 }
 
 module.exports = renderSeats;
