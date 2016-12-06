@@ -16,16 +16,10 @@ var renderPaymentForm = function() {
 
   $('<h1>').text('Your Details').appendTo('#payment-form')
 
-<<<<<<< HEAD
-  $('<input class="input-form" placeholder="Full Name" name="name">').appendTo('#payment-form')
-  $('<input class="input-form" placeholder="Email" name="email">').appendTo('#payment-form')
-  $('<input class="input-form" placeholder="Confirm Email">').appendTo('#payment-form')
-=======
   $('<input type="number" value="1" name="quantity">').appendTo('#payment-form')
-  $('<input placeholder="Full Name" name="name">').appendTo('#payment-form')
-  $('<input placeholder="Email" name="email" type="email" id="email">').appendTo('#payment-form')
-  $('<input placeholder="Confirm Email" type="email" id="confirm-email">').appendTo('#payment-form')
->>>>>>> 762b9a0dff4ba141a91c29b792f2ae84caa878bc
+  $('<input class="input-form" placeholder="Full Name" name="name">').appendTo('#payment-form')
+  $('<input class="input-form" placeholder="Email" name="email" type="email" id="email">').appendTo('#payment-form')
+  $('<input class="input-form" placeholder="Confirm Email" type="email" id="confirm-email">').appendTo('#payment-form')
 
   $('<hr>').appendTo('#payment-form')
   $('<h1>').text('Payment Details').appendTo('#payment-form')
