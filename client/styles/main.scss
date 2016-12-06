@@ -12,97 +12,112 @@ $secondary-color: #FFFFFF;
   background-size: cover;
   font-family: $main-font;
 
-  .home-middle-wrapper {
+  .home-main {
     width: 100%;
-    text-align: center;
+    height: 100%;
 
-    .home-middle-location {
-      width: 50%;
-      display: block;
-      margin: 0 auto;
-      border-top: 2px solid $secondary-color;
-      border-bottom: 2px solid $secondary-color;
-      color: $secondary-color;
-
-      h2 {
-        font-size: 1.7em;
-        margin-top: .5em;
-      }
-
-      h3 {
-        margin-bottom: 1em;
-      }
-    }
-
-  }
-
-  .buy-ticket-btn {
-    display: block;
-    margin: 1.8em auto;
-    width: 9em;
-    padding: 1.2em 2em;
-    background-color: $primary-color;
-    text-align: center;
-    border-radius: 5px;
-    font-size: 1.2em;
-    color: $secondary-color;
-  }
-
-  .buy-ticket-btn:hover {
-    animation: bounce 1s;
-    cursor: pointer;
-  }
-
-  .home-top-wrapper {
-    width: 100%;
-
-    h1 {
+    .home-middle-wrapper {
+      width: 100%;
       text-align: center;
-      display: block;
-      margin: 2em 0 .5em 0;
-      font-size: 3em;
-      font-family: $header-font;
-      color: $secondary-color;
+
+      .home-middle-location {
+        width: 50%;
+        display: block;
+        margin: 0 auto;
+        border-top: 2px solid $secondary-color;
+        border-bottom: 2px solid $secondary-color;
+        color: $secondary-color;
+
+        h2 {
+          font-size: 1.7em;
+          margin-top: .5em;
+        }
+
+        h3 {
+          margin-bottom: 1em;
+        }
+      }
+
     }
 
-    .home-nav {
+    .home-bottom-wrapper {
       width: 100%;
 
-      ul li {
-        display: inline-block;
-        color: $secondary-color;
-        margin: .8%;
-        padding: 5%;
-        width: 22.5%;
-        font-size: 1em;
-        text-align: center;
-        vertical-align: middle;
-        transition: .1s;
-        cursor: pointer;
+      .home-bottom-button {
 
-        a:hover {
-          color: $primary-color;
-        }
-
-        #fourth:hover {
+        .buy-ticket-btn {
+          display: block;
+          margin: 1.8em auto;
+          width: 9em;
+          padding: 1.2em 2em;
+          background-color: $primary-color;
+          text-align: center;
+          border-radius: 5px;
+          font-size: 1.2em;
           color: $secondary-color;
         }
+
+        .buy-ticket-btn:hover {
+          animation: bounce 1s;
+          cursor: pointer;
+        }
+
       }
 
-      .nav-ticket-btn {
-        background-color: $primary-color;
-        padding: 2.1%;
-        margin-left: 1%;
-        border-radius: 5px;
+    }
+
+    .home-top-wrapper {
+      width: 100%;
+
+      h1 {
+        text-align: center;
+        display: block;
+        margin: 2em 0 .5em 0;
+        font-size: 3em;
+        font-family: $header-font;
+        color: $secondary-color;
       }
 
-      .nav-ticket-btn:hover {
-        animation: bounce 1s;
-        cursor: pointer;
+      .home-nav {
+        width: 100%;
+
+        ul li {
+          display: inline-block;
+          color: $secondary-color;
+          margin: .8%;
+          padding: 5%;
+          width: 22.5%;
+          font-size: 1em;
+          text-align: center;
+          vertical-align: middle;
+          transition: .1s;
+          cursor: pointer;
+
+          a:hover {
+            color: $primary-color;
+          }
+
+          #fourth:hover {
+            color: $secondary-color;
+          }
+        }
+
+        .nav-ticket-btn {
+          background-color: $primary-color;
+          padding: 2.1%;
+          margin-left: 1%;
+          border-radius: 5px;
+        }
+
+        .nav-ticket-btn:hover {
+          animation: bounce 1s;
+          cursor: pointer;
+        }
       }
     }
   }
 }
+
 
 @keyframes bounce {
 	0%, 20%, 60%, 100% {
