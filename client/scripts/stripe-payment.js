@@ -2,12 +2,6 @@ const $ = require('jquery')
 const renderSeats = require('./../views/reserve-seats')
 
 var stripeResponseHandler = function (status, response) {
-
-  console.log('stripe received');
-
-  console.log(status);
-  console.log(response);
-
   // Grab the form:
   var $form = $('#payment-stripe-form');
 
@@ -20,12 +14,9 @@ var stripeResponseHandler = function (status, response) {
     $('.payment-errors').text(response.error.message);
     $form.find('.submit').prop('disabled', false); // Re-enable submission
 
-  } else { // Token was created!
-    console.log('token created');
+  } else {
     // Get the token ID:
     var token = response.id;
-
-    console.log(token);
 
     // Insert the token ID into the form so it gets submitted to the server:
     $form.append($('<input type="hidden" name="stripeToken">').val(token));
@@ -40,15 +31,12 @@ var stripeResponseHandler = function (status, response) {
       quantity: $('input[name="quantity"]').val()
     }
 
-    console.log(formData)
-
     $.ajax('http://localhost:3030/pay', {
       method: 'post',
       data: formData
     }).done(function(res) {
-      console.log(res)
       $('.loader').remove();
-      renderSeats()
+      renderSeats(res)
     })
 
   }
