@@ -27,6 +27,14 @@ var renderSeats = function() {
       var $seat = $('<div class="seat">')
       if (obj[key] === 'reserved') {
         $seat.addClass('reserved')
+      } else {
+        $seat.click(function() {
+          if ($('.seat-selected').length < 1) {
+            $seat.toggleClass('seat-selected')
+          } else {
+            $seat.removeClass('seat-selected')
+          }
+        })
       }
       $seat.appendTo($row)
     })
