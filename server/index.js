@@ -6,6 +6,7 @@ const fetch = require('node-fetch')
 const stripe = require("stripe")("sk_test_ySnrhITknKLkb1NjIbiSWYqI")
 const bodyparser = require('body-parser')
 const sendConfEmail = require('./scripts/send-email')
+const saveToDb = require('./scripts/save-user-to-db')
 
 app.use(express.static('../scripts'));
 app.use(express.static('../views'));
@@ -16,7 +17,7 @@ app.get('/', function(req, res) {
 })
 
 app.get('/test', function(req, res) {
-  fetch('https://api.mlab.com/api/1/databases/wdi_conf/collections/test?apiKey=' + mLabKey)
+  fetch('https://api.mlab.com/api/1/databases/wdi_conf/collections/talks?apiKey=' + mLabKey)
   .then(function(res) {
   return res.json()
 }).then(function(json) {
@@ -44,23 +45,10 @@ app.post('/pay', bodyparser(), function(request, response) {
     } else {
       console.log(charge)
       sendConfEmail(request.body.email)
+      saveToDb(request.body.name, request.body.email)
       response.json(charge);
     }
   });
-
-  fetch('https://api.mlab.com/api/1/databases/wdi_conf/collections/ticketholder?apiKey=' + mLabKey, {
-    method: 'POST',
-    body: JSON.stringify( {
-      name: request.body.name,
-      email: request.body.email
-     }),
-    headers: {'Content-Type' : 'application/json'}
-    }).then(function(res) {
-      return res.json()
-    }).then(function(json) {
-      console.log(json)
-    })
-
 });
 
 // Start server

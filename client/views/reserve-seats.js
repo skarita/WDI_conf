@@ -2,18 +2,7 @@ const $ = require('jquery')
 
 var renderSeats = function() {
 
-  var talk = {
-    seats: [
-      {
-        a1: 'available',
-        a2: 'reserved'
-      },
-      {
-        b2: 'available',
-        b3: 'available'
-      }
-    ]
-  }
+  var talks = {}
 
   $('<div id="wrapper" class="modal">').appendTo('#modal-wrapper');
   $('<h5>').text('Payment Sucessful').appendTo('#wrapper');
@@ -21,7 +10,7 @@ var renderSeats = function() {
   $('<button>').text('Skip').appendTo('#wrapper');
   $('<div>').text('stage').appendTo('#wrapper');
 
-  $.each(talk.seats, function(i, obj) {
+  $.each(talks.seats, function(i, obj) {
     var $row = $('<div>')
     Object.keys(obj).forEach(function(key) {
       var $seat = $('<div class="seat">')
@@ -40,6 +29,8 @@ var renderSeats = function() {
     })
     $row.appendTo('#wrapper');
   });
+
+  $('<button>').text('Submit').appendTo('#wrapper')
 }
 
 module.exports = renderSeats;
