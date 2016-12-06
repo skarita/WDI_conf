@@ -2,12 +2,15 @@ const $ = require('jquery')
 const renderPaymentForm = require('./payment-form.js')
 const renderHomeSection = require('./home-section.js')
 const renderSpeakerSection = require('./speaker-section.js')
+const renderSponsorsSection = require('./sponsors-section.js')
 
 var renderLandingPage = function() {
 
   renderHomeSection();
 
   renderSpeakerSection();
+
+  renderSponsorsSection();
 
   $('.buy-ticket-btn, #fourth').click(function() {
 
