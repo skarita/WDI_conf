@@ -6,9 +6,7 @@ $secondary-color: #FFFFFF;
 
 
 #modal-wrapper {
-  margin: 0 auto;
-
-  width: 77%;
+  // margin: 0 auto;
 
   .modal {
       position: fixed; /* Stay in place */
@@ -25,8 +23,8 @@ $secondary-color: #FFFFFF;
 
       .close-btn {
         position: fixed;
-        top: 2.2em;
-        right: 6.4em;
+        top: 2.0em;
+        right: 2.0em;
         font-size: 1.5em;
       }
 
@@ -38,9 +36,9 @@ $secondary-color: #FFFFFF;
   #payment-form-modal {
 
     margin: 38px auto 20px;
-    padding: 60px;
-    width: 76%;
-    height: 90%;
+    // padding: 60px;
+    // width: 76%;
+    // height: 90%;
 
     .input-form {
       display: block;
@@ -60,7 +58,7 @@ $secondary-color: #FFFFFF;
 
     #payment-form {
       font-family: 'Dosis', sans-serif;
-      width: 80%;
+      width: 95%;
       margin: 0 auto;
       // text-align: center;
     }
