@@ -4,9 +4,20 @@ $main-font: 'Dosis', sans-serif;
 $primary-color: #DB700A;
 $secondary-color: #FFFFFF;
 
+// TODO on payment form
+// 1) get the qty to increase the Total price
+// 2) line up cancel and submit btn
+// 3) style the line breaks if possible
+
+#submit-btn {
+  display: inline-block;;
+}
+
+#cancel-btn {
+  display: inline-block;
+}
 
 #modal-wrapper {
-  // margin: 0 auto;
 
   .modal {
       position: fixed; /* Stay in place */
@@ -16,15 +27,15 @@ $secondary-color: #FFFFFF;
       width: 96.5%; /* Full width */
       height: 95.5%; /* Full height */
       overflow: scroll; /* Enable scroll if needed */
-      background-color: $secondary-color; /* Black w/ opacity */
       margin: 2% 2.5% 2% 2%;
       // margin: 0 auto;
       border-radius: 5px;
+      background: rgba(255,255,255,.95);
 
       .close-btn {
         position: fixed;
-        top: 2.0em;
-        right: 2.0em;
+        top: 1.0em;
+        right: 1.0em;
         font-size: 1.5em;
       }
 
@@ -35,21 +46,47 @@ $secondary-color: #FFFFFF;
 
   #payment-form-modal {
 
-    margin: 38px auto 20px;
-    // padding: 60px;
-    // width: 76%;
-    // height: 90%;
+    hr {
+      color: white;
+    }
 
     .input-form {
       display: block;
-      height: 2.5em;
-      width: 14em;
+      height: 3em;
+      width: 95%;
       margin: 1em 0;
-      // border: 0 0 1px 0;
+    }
+
+    .expiry-input {
+      width: 31.67%;
+      height: 3em;
     }
 
     .num-ticket {
       margin: 1em 0;
+    }
+
+    #input-qty {
+      height: 3em;
+      width: 2.5em;
+      text-align: center;
+    }
+
+    #plus-btn,
+    #less-btn {
+      font-size: 1.2em;
+      vertical-align: middle;
+      border: 1px dashed black;
+      padding: 3px 8px 5px;
+      margin: 0 0.4em;
+      cursor: pointer;
+      border-radius: 10px;
+      -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /*Chrome/Safari/Opera */
+           -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
     }
 
     .num-input {
@@ -60,8 +97,9 @@ $secondary-color: #FFFFFF;
       font-family: 'Dosis', sans-serif;
       width: 95%;
       margin: 0 auto;
-      // text-align: center;
+      margin-top: 3em;
     }
+
   }
 }
 
