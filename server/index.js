@@ -16,14 +16,30 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/index.html'))
 })
 
-app.get('/test', function(req, res) {
+app.get('/testget', function(req, res) {
   fetch('https://api.mlab.com/api/1/databases/wdi_conf/collections/talks?apiKey=' + mLabKey)
-  .then(function(res) {
-  return res.json()
-}).then(function(json) {
-  res.json(json)
+    .then(function(res) {
+      return res.json()
+  }).then(function(json) {
+    res.json(json)
+  })
 })
 
+app.get('/testupdate', function(req, res) {
+  fetch(
+    'https://api.mlab.com/api/1/databases/wdi_conf/collections/talks?apiKey='
+    + mLabKey
+    + '&q={"presenter":"Elon Musk"}', {
+      method: 'PUT',
+      body: JSON.stringify({
+        $set: { "seat.a.6": "reserved", "seat.a.7": "reserved" }
+      }),
+      headers: {'Content-Type' : 'application/json'}
+      }).then(function(res) {
+        return res.json()
+      }).then(function(json) {
+        console.log(json)
+    })
 })
 
 app.post('/pay', bodyparser(), function(request, response) {
@@ -53,23 +69,6 @@ app.post('/pay', bodyparser(), function(request, response) {
         .then((json) => response.json(json))
     }
   });
-<<<<<<< HEAD
-  
-  fetch('https://api.mlab.com/api/1/databases/wdi_conf/collections/ticketholder?apiKey=' + mLabKey, {
-    method: 'POST',
-    body: JSON.stringify( {
-      name: request.body.name,
-      email: request.body.email
-     }),
-    headers: {'Content-Type' : 'application/json'}
-    }).then(function(res) {
-      return res.json()
-    }).then(function(json) {
-      console.log(json)
-    })
-
-=======
->>>>>>> b51b3cb549e5019bf14a647ae1282e466de6e6ae
 });
 
 // Start server

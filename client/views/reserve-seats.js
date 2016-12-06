@@ -2,11 +2,11 @@ const $ = require('jquery')
 
 const seatingPlan = (seats) => {
   $('#seat-plan').html('')
-  $.each(seats, function(i, obj) {
+  Object.keys(seats).forEach(function(row) {
     var $row = $('<div>')
-    Object.keys(obj).forEach(function(key) {
+    Object.keys(seats[row]).forEach(function(seat) {
       var $seat = $('<div class="seat">')
-      if (obj[key] === 'reserved') {
+      if (seats[row][seat] === 'reserved') {
         $seat.addClass('reserved')
       } else {
         $seat.click(function() {
@@ -20,7 +20,7 @@ const seatingPlan = (seats) => {
       $seat.appendTo($row)
     })
     $row.appendTo('#seat-plan')
-  });
+  })
 }
 
 const renderSeats = function(talks) {
