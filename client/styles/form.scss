@@ -4,8 +4,11 @@ $main-font: 'Dosis', sans-serif;
 $primary-color: #DB700A;
 $secondary-color: #FFFFFF;
 
+
 #modal-wrapper {
-  width: 100%;
+  margin: 0 auto;
+
+  width: 77%;
 
   .modal {
       position: fixed; /* Stay in place */
@@ -17,12 +20,13 @@ $secondary-color: #FFFFFF;
       overflow: scroll; /* Enable scroll if needed */
       background-color: $secondary-color; /* Black w/ opacity */
       margin: 2% 2.5% 2% 2%;
+      // margin: 0 auto;
       border-radius: 5px;
 
       .close-btn {
         position: fixed;
-        top: 1.2em;
-        right: 1.2em;
+        top: 2.2em;
+        right: 6.4em;
         font-size: 1.5em;
       }
 
@@ -31,6 +35,36 @@ $secondary-color: #FFFFFF;
       }
   }
 
+  #payment-form-modal {
+
+    margin: 38px auto 20px;
+    padding: 60px;
+    width: 76%;
+    height: 90%;
+
+    .input-form {
+      display: block;
+      height: 2.5em;
+      width: 14em;
+      margin: 1em 0;
+      // border: 0 0 1px 0;
+    }
+
+    .num-ticket {
+      margin: 1em 0;
+    }
+
+    .num-input {
+      margin: 1em 0;
+    }
+
+    #payment-form {
+      font-family: 'Dosis', sans-serif;
+      width: 80%;
+      margin: 0 auto;
+      // text-align: center;
+    }
+  }
 }
 
 .loader,
