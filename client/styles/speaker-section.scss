@@ -1,12 +1,29 @@
+@import "_variables";
+@import "_fonts";
+
 .speaker-wrapper {
   width: 100%;
   height: 100%;
-  background-color: blue;
+  background-color: $secondary-color;
 
-  .speaker-main {
-    background-color: blue;
-    height: 100vh;
-
+  h1 {
+    font-size: 2.5em;
+    text-align: center;
+    font-family: $header-font;
   }
 
+  .speaker-list {
+    width: 95%;
+    height: 85%;
+    display: block;
+    position: absolute;
+    background-color: $primary-color;
+    margin: 17.5% 2.5% 2.5% 2.5%;
+    padding: 2.5%;
+
+    .speaker-card {
+      height: 19%;
+      width: 95%;
+    }
+  }
 }

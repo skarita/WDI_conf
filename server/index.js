@@ -16,14 +16,42 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/index.html'))
 })
 
-app.get('/test', function(req, res) {
+app.get('/testget', function(req, res) {
   fetch('https://api.mlab.com/api/1/databases/wdi_conf/collections/talks?apiKey=' + mLabKey)
-  .then(function(res) {
-  return res.json()
-}).then(function(json) {
-  res.json(json)
+    .then(function(res) {
+      return res.json()
+  }).then(function(json) {
+    res.json(json)
+  })
 })
 
+app.post('/reserve', bodyparser(), function(req, res) {
+  console.log(
+    'https://api.mlab.com/api/1/databases/wdi_conf/collections/talks?apiKey='
+    + mLabKey
+    + '&q={"presenter":"'
+    + req.body.presenter
+    + '"}'
+  )
+  console.log(JSON.stringify({
+        $set: req.body.reserved
+      }))
+  fetch(
+    'https://api.mlab.com/api/1/databases/wdi_conf/collections/talks?apiKey='
+    + mLabKey
+    + '&q={"presenter":"'
+    + req.body.presenter
+    + '"}', {
+      method: 'PUT',
+      body: JSON.stringify({
+        $set: req.body.reserved
+      }),
+      headers: {'Content-Type' : 'application/json'}
+      }).then(function(response) {
+        return response.json()
+      }).then(function(json) {
+        res.json(json)
+    })
 })
 
 app.post('/pay', bodyparser(), function(request, response) {
@@ -53,6 +81,7 @@ app.post('/pay', bodyparser(), function(request, response) {
         .then((json) => response.json(json))
     }
   });
+<<<<<<< HEAD
 
   fetch('https://api.mlab.com/api/1/databases/wdi_conf/collections/ticketholder?apiKey=' + mLabKey, {
     method: 'POST',
@@ -67,6 +96,8 @@ app.post('/pay', bodyparser(), function(request, response) {
       console.log(json)
     })
 
+=======
+>>>>>>> 457416029673c829b1c6b71c84524cdf452b76bb
 });
 
 // Start server
