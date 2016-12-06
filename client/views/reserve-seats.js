@@ -1,6 +1,5 @@
 const $ = require('jquery')
 
-
 var renderSeats = function() {
 
   var talk = {
@@ -16,17 +15,17 @@ var renderSeats = function() {
     ]
   }
 
-
   $('<div id="wrapper">').appendTo('#root');
   $('<h5>').text('Payment Sucessful').appendTo('#wrapper');
   $('<p>').text('Would you like to reserve seating?').appendTo('#wrapper');
   $('<button>').text('Skip').appendTo('#wrapper');
   $('<div>').text('stage').appendTo('#wrapper');
-  $.each(talk.seats, function(v) {
-    var $row = $('<div>');
-    $.each(v, function(seat, status) {
-      // $('<span>').text(seat + " " + status).appendTo($row);
-    });
+
+  $.each(talk.seats, function(i, obj) {
+    var $row = $('<div id="test">')
+    Object.keys(obj).forEach(function(key) {
+      $('<span>').text(key + " " + obj[key]).appendTo($row);
+    })
     $row.appendTo('#wrapper');
   });
 
