@@ -26,7 +26,7 @@ var renderLandingPage = function() {
 
   $('<a class="buy-ticket-btn">').text('Buy Tickets').appendTo('.home-wrapper')
 
-  $('.buy-ticket-btn').click(function() {
+  $('.buy-ticket-btn, #fourth').click(function() {
 
     $('<div id="modal-wrapper" class="modal">').appendTo('#root');
     $('<div id="payment-form-modal" class="modal">').appendTo('#modal-wrapper');

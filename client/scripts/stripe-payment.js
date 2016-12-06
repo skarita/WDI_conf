@@ -13,6 +13,9 @@ var stripeResponseHandler = function (status, response) {
 
   if (response.error) { // Problem!
 
+    $('.loader').remove();
+    $('#payment-form').show();
+
     // Show the errors on the form:
     $('.payment-errors').text(response.error.message);
     $form.find('.submit').prop('disabled', false); // Re-enable submission
@@ -44,7 +47,7 @@ var stripeResponseHandler = function (status, response) {
       data: formData
     }).done(function(res) {
       console.log(res)
-      $('#root').html('')
+      $('.loader').remove();
       renderSeats()
     })
 
