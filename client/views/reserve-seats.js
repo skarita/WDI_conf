@@ -15,7 +15,7 @@ var renderSeats = function() {
     ]
   }
 
-  $('<div id="wrapper">').appendTo('#root');
+  $('<div id="wrapper" class="modal">').appendTo('#modal-wrapper');
   $('<h5>').text('Payment Sucessful').appendTo('#wrapper');
   $('<p>').text('Would you like to reserve seating?').appendTo('#wrapper');
   $('<button>').text('Skip').appendTo('#wrapper');
