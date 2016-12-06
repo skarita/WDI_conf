@@ -2,11 +2,11 @@ const $ = require('jquery')
 
 const seatingPlan = (seats) => {
   $('#seat-plan').html('')
-  $.each(seats, function(i, obj) {
+  Object.keys(seats).forEach(function(row) {
     var $row = $('<div>')
-    Object.keys(obj).forEach(function(key) {
-      var $seat = $('<div class="seat">')
-      if (obj[key] === 'reserved') {
+    Object.keys(seats[row]).forEach(function(seat) {
+      var $seat = $('<div class="seat">').data({ row: row, seat: seat })
+      if (seats[row][seat] === 'reserved') {
         $seat.addClass('reserved')
       } else {
         $seat.click(function() {
@@ -20,7 +20,7 @@ const seatingPlan = (seats) => {
       $seat.appendTo($row)
     })
     $row.appendTo('#seat-plan')
-  });
+  })
 }
 
 const renderSeats = function(talks) {
@@ -38,12 +38,37 @@ const renderSeats = function(talks) {
     $('<option>').text(v.presenter).appendTo($('select'))
   })
 
+  var formData = {
+    presenter: "Mark Zuckerberg",
+    reserved: {}
+  }
+
   $('select').change((e) => {
-    talks.forEach((v) => {
-      if (v.presenter === e.target.value) {
-        seatingPlan(v.seat)
-      }
-    })
+    if ($('.seat-selected').length > 0) {
+      $('.seat-selected').each(function() {
+        formData.reserved[`seat.${ $(this).data('row') }.${ $(this).data('seat') }`] = "reserved"
+      })
+      $.ajax('http://localhost:3030/reserve', {
+        method: 'post',
+        data: formData
+      }).done(function(res) {
+        talks.forEach((v) => {
+          if (v.presenter === e.target.value) {
+            seatingPlan(v.seat)
+          }
+        })
+        formData.presenter = e.target.value
+        formData.reserved = {}
+      })
+    } else {
+      talks.forEach((v) => {
+        if (v.presenter === e.target.value) {
+          seatingPlan(v.seat)
+        }
+      })
+      formData.presenter = e.target.value
+      formData.reserved = {}
+    }
   })
 
   $('<button>').text('Submit').appendTo('#wrapper')
