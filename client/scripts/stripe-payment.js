@@ -27,9 +27,6 @@ var stripeResponseHandler = function (status, response) {
 
     console.log(token);
 
-    $('.loader').remove();
-    $('#payment-form').show();
-    
     // Insert the token ID into the form so it gets submitted to the server:
     $form.append($('<input type="hidden" name="stripeToken">').val(token));
 
@@ -50,7 +47,7 @@ var stripeResponseHandler = function (status, response) {
       data: formData
     }).done(function(res) {
       console.log(res)
-      $('#root').html('')
+      $('.loader').remove();
       renderSeats()
     })
 
