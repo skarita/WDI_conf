@@ -81,23 +81,6 @@ app.post('/pay', bodyparser(), function(request, response) {
         .then((json) => response.json(json))
     }
   });
-<<<<<<< HEAD
-
-  fetch('https://api.mlab.com/api/1/databases/wdi_conf/collections/ticketholder?apiKey=' + mLabKey, {
-    method: 'POST',
-    body: JSON.stringify( {
-      name: request.body.name,
-      email: request.body.email
-     }),
-    headers: {'Content-Type' : 'application/json'}
-    }).then(function(res) {
-      return res.json()
-    }).then(function(json) {
-      console.log(json)
-    })
-
-=======
->>>>>>> 457416029673c829b1c6b71c84524cdf452b76bb
 });
 
 // Start server
