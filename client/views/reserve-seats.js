@@ -11,7 +11,7 @@ const seatingPlan = (talk) => {
         $seat.addClass('reserved')
       } else {
         $seat.click(function() {
-          if ($('.seat-selected').length < 1) {
+          if ($(`#${presenter}-seats .seat-selected`).length < 1) {
             $seat.toggleClass('seat-selected')
           } else {
             $seat.removeClass('seat-selected')
@@ -46,9 +46,7 @@ const renderSeats = function(talks) {
   }
 
   $('select').change((e) => {
-    console.log(e.target.value)
     const presenter = e.target.value.split(' ')[e.target.value.split(' ').length -1].toLowerCase()
-    console.log(presenter)
     $('.plan').hide()
     $(`#${presenter}-seats`).show()
     // if ($('.seat-selected').length > 0) {
