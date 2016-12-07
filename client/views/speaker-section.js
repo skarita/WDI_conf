@@ -5,7 +5,7 @@ var renderSpeakerSection = function() {
   // speaker section and list of speakers
   $('<div class="speaker-wrapper">').appendTo('.home-wrapper');
   $('<div class="speaker-list">').appendTo('.speaker-wrapper');
-  $('<h1>').text('Speakers').appendTo('.speaker-wrapper')
+  $('<h1 id="speakers">').text('Speakers').appendTo('.speaker-wrapper')
 
   // Speaker name, picture and bio
   $('<div class="speaker-card" id="mark">').appendTo('.speaker-list');
