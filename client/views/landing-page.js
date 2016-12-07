@@ -4,8 +4,12 @@ const renderHomeSection = require('./home-section.js')
 const renderSpeakerSection = require('./speaker-section.js')
 const renderSponsorsSection = require('./sponsors-section.js')
 const renderLocationSection = require('./location-section.js')
+const renderSmoothScrolling = require('./smooth-scrolling.js')
 
 var renderLandingPage = function() {
+
+  renderSmoothScrolling();
+
 
   renderHomeSection();
 
@@ -21,6 +25,8 @@ var renderLandingPage = function() {
     $('<div id="payment-form-modal" class="modal">').appendTo('#modal-wrapper');
       renderPaymentForm()
   })
+
+
 
 }
 
