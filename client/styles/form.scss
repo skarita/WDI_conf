@@ -19,6 +19,14 @@ $secondary-color: #FFFFFF;
 .home-link {
   display: inline-block;
   margin-left: .5em;
+
+  button {
+    width: 10em;
+    padding: 1.15em;
+    border: none;
+    border-radius: 5px;
+    color: $secondary-color;
+  }
 }
 
 #modal-wrapper {
@@ -35,6 +43,7 @@ $secondary-color: #FFFFFF;
       // margin: 0 auto;
       border-radius: 5px;
       background: rgba(255,255,255,.95);
+      transition: all 1s;
 
       .close-btn {
         position: fixed;
@@ -85,20 +94,22 @@ $secondary-color: #FFFFFF;
       margin: 0 0.4em;
       cursor: pointer;
       border-radius: 10px;
-      -webkit-touch-callout: none; /* iOS Safari */
-        -webkit-user-select: none; /*Chrome/Safari/Opera */
-           -moz-user-select: none; /* Firefox */
-            -ms-user-select: none; /* Internet Explorer/Edge */
-                user-select: none; /* Non-prefixed version, currently
-                                  not supported by any browser */
+      box-shadow: .2px .2px .2px;
+    }
+
+    #plus-btn:hover {
+      box-shadow: 0px 0px 0px;
+    }
+    #less-btn:hover {
+      box-shadow: 0px 0px 0px;
     }
 
     .num-input {
-      margin: 1em 0;
+      margin: 2em 0;
     }
 
     #payment-form {
-      font-family: 'Dosis', sans-serif;
+      font-family: $main-font;
       width: 95%;
       margin: 0 auto;
       margin-top: 3em;

@@ -29,9 +29,6 @@ var renderLocationSection = function() {
   });
  }
 
-
-
-
 }
 
 module.exports = renderLocationSection;
