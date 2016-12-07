@@ -1,4 +1,5 @@
 const $ = require('jquery')
+const fullNames = require('./../scripts/full-names.js')
 
 const seatingPlan = (talk) => {
   const presenter = talk.presenter.split(' ')[talk.presenter.split(' ').length - 1].toLowerCase()
@@ -40,43 +41,54 @@ const renderSeats = function(talks) {
     $('<option>').text(v.presenter).appendTo($('select'))
   })
 
-  var formData = {
-    presenter: "Mark Zuckerberg",
-    reserved: {}
-  }
-
   $('select').change((e) => {
     const presenter = e.target.value.split(' ')[e.target.value.split(' ').length -1].toLowerCase()
     $('.plan').hide()
     $(`#${presenter}-seats`).show()
-    // if ($('.seat-selected').length > 0) {
-    //   $('.seat-selected').each(function() {
-    //     formData.reserved[`seat.${ $(this).data('row') }.${ $(this).data('seat') }`] = "reserved"
-    //   })
-    //   $.ajax('http://localhost:3030/reserve', {
-    //     method: 'post',
-    //     data: formData
-    //   }).done(function(res) {
-    //     talks.forEach((v) => {
-    //       if (v.presenter === e.target.value) {
-    //         seatingPlan(v.seat)
-    //       }
-    //     })
-    //     formData.presenter = e.target.value
-    //     formData.reserved = {}
-    //   })
-    // } else {
-    //   talks.forEach((v) => {
-    //     if (v.presenter === e.target.value) {
-    //       seatingPlan(v.seat)
-    //     }
-    //   })
-    //   formData.presenter = e.target.value
-    //   formData.reserved = {}
-    // }
+
+  //   if ($('.seat-selected').length > 0) {
+  //     $('.seat-selected').each(function() {
+  //       formData.reserved[`seat.${ $(this).data('row') }.${ $(this).data('seat') }`] = "reserved"
+  //     })
+  //     $.ajax('http://localhost:3030/reserve', {
+  //       method: 'post',
+  //       data: formData
+  //     }).done(function(res) {
+  //       talks.forEach((v) => {
+  //         if (v.presenter === e.target.value) {
+  //           seatingPlan(v.seat)
+  //         }
+  //       })
+  //       formData.presenter = e.target.value
+  //       formData.reserved = {}
+  //     })
+  //   } else {
+  //     talks.forEach((v) => {
+  //       if (v.presenter === e.target.value) {
+  //         seatingPlan(v.seat)
+  //       }
+  //     })
+  //     formData.presenter = e.target.value
+  //     formData.reserved = {}
+  //   }
   })
 
+  var formData = {}
+
   $('<button id="submit-reservation">').text('Submit').appendTo('#wrapper')
+  $('#submit-reservation').click(function() {
+    $('.plan').each(function(index, plan) {
+      if ($(plan).find('.seat-selected').length > 0) {
+        var name = plan.getAttribute('id')
+        name = fullNames[name.slice(0, name.length - 6)]
+        formData[name] = []
+        $(plan).find('.seat-selected').each(function() {
+          formData[name].push(`seat.${ $(this).data('row') }.${ $(this).data('seat') }`)
+        })
+      }
+    })
+    console.log(formData)
+  })
 }
 
 module.exports = renderSeats;
