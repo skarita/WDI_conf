@@ -4,17 +4,21 @@ $main-font: 'Dosis', sans-serif;
 $primary-color: #DB700A;
 $secondary-color: #FFFFFF;
 
-// TODO on payment form
-// 1) get the qty to increase the Total price
-// 2) line up cancel and submit btn
-// 3) style the line breaks if possible
-
 #submit-btn {
-  display: inline-block;;
+  display: inline-block;
+  margin: 1.8em auto;
+  width: 10em;
+  padding: 1.2em;
+  background-color: $primary-color;
+  text-align: center;
+  border-radius: 5px;
+  color: $secondary-color;
+  border: none;
 }
 
 .home-link {
   display: inline-block;
+  margin-left: .5em;
 }
 
 #modal-wrapper {
