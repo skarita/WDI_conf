@@ -45,32 +45,6 @@ const renderSeats = function(talks) {
     const presenter = e.target.value.split(' ')[e.target.value.split(' ').length -1].toLowerCase()
     $('.plan').hide()
     $(`#${presenter}-seats`).show()
-
-  //   if ($('.seat-selected').length > 0) {
-  //     $('.seat-selected').each(function() {
-  //       formData.reserved[`seat.${ $(this).data('row') }.${ $(this).data('seat') }`] = "reserved"
-  //     })
-  //     $.ajax('http://localhost:3030/reserve', {
-  //       method: 'post',
-  //       data: formData
-  //     }).done(function(res) {
-  //       talks.forEach((v) => {
-  //         if (v.presenter === e.target.value) {
-  //           seatingPlan(v.seat)
-  //         }
-  //       })
-  //       formData.presenter = e.target.value
-  //       formData.reserved = {}
-  //     })
-  //   } else {
-  //     talks.forEach((v) => {
-  //       if (v.presenter === e.target.value) {
-  //         seatingPlan(v.seat)
-  //       }
-  //     })
-  //     formData.presenter = e.target.value
-  //     formData.reserved = {}
-  //   }
   })
 
   var formData = {}
@@ -87,7 +61,7 @@ const renderSeats = function(talks) {
         })
       }
     })
-    $.ajax('http://localhost:3030/testupdate', {
+    $.ajax('http://localhost:3030/reserve', {
       method: 'post',
       data: formData
     }).done(function(res) {
