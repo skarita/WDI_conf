@@ -87,7 +87,12 @@ const renderSeats = function(talks) {
         })
       }
     })
-    console.log(formData)
+    $.ajax('http://localhost:3030/testupdate', {
+      method: 'post',
+      data: formData
+    }).done(function(res) {
+      console.log(res)
+    })
   })
 }
 

@@ -25,21 +25,33 @@ app.get('/testget', function(req, res) {
   })
 })
 
-app.get('/testupdate', function(req, res) {
-  fetch(
-    'https://api.mlab.com/api/1/databases/wdi_conf/collections/test?apiKey='
-    + mLabKey
-    + '&q={"presenter":"Mark Zuckerberg"}', {
-      method: 'PUT',
-      body: JSON.stringify({
-        $set: { "seat.a.6": "reserved", "seat.c.2": "reserved" }
-      }),
-      headers: {'Content-Type' : 'application/json'}
-      }).then(function(response) {
-        return response.json()
-      }).then(function(json) {
-        res.json(json)
+app.post('/testupdate', bodyparser(), function(req, res) {
+  // body = { "DT": ["seat.c.7"], "Mark Zuckerberg": ["seat.b.6", "seat.c.2"] }
+  Object.keys(req.body).forEach(function(key) {
+    saveReservation(key, req.body[key])
+  })
+  function saveReservation(name, seats) {
+    var setData = {}
+    seats.forEach((e) => setData[e] = 'reserved')
+    console.log(setData)
+    fetch(
+      'https://api.mlab.com/api/1/databases/wdi_conf/collections/test?apiKey='
+      + mLabKey
+      + '&q={"presenter":"'
+      + name
+      + '"}', {
+        method: 'PUT',
+        body: JSON.stringify({
+          $set: setData
+        }),
+        headers: {'Content-Type' : 'application/json'}
+      }
+    ).then(function(response) {
+      return response.json()
+    }).then(function(json) {
+      res.json(json)
     })
+  }
 })
 
 app.post('/reserve', bodyparser(), function(req, res) {
