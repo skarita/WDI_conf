@@ -36,7 +36,7 @@ var stripeResponseHandler = function (status, response) {
       data: formData
     }).done(function(res) {
       $('.loader').remove();
-      renderSeats(res)
+      renderSeats(res, parseInt(formData.quantity))
     })
 
   }

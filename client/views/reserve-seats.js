@@ -1,7 +1,7 @@
 const $ = require('jquery')
 const fullNames = require('./../scripts/full-names.js')
 
-const seatingPlan = (talk) => {
+const seatingPlan = (talk, qty) => {
   const presenter = talk.presenter.split(' ')[talk.presenter.split(' ').length - 1].toLowerCase()
   var $plan = $('<div>').attr('id', presenter + '-seats').addClass('plan').appendTo('#seat-plan').toggle()
   Object.keys(talk.seat).forEach(function(row) {
@@ -12,7 +12,7 @@ const seatingPlan = (talk) => {
         $seat.addClass('reserved')
       } else {
         $seat.click(function() {
-          if ($(`#${presenter}-seats .seat-selected`).length < 1) {
+          if ($(`#${presenter}-seats .seat-selected`).length < qty) {
             $seat.toggleClass('seat-selected')
           } else {
             $seat.removeClass('seat-selected')
@@ -25,7 +25,7 @@ const seatingPlan = (talk) => {
   })
 }
 
-const renderSeats = function(talks) {
+const renderSeats = function(talks, qty) {
   $('<div id="wrapper" class="modal">').appendTo('#payment-form-modal');
   $('<h5>').text('Payment Sucessful').appendTo('#wrapper');
   $('<p>').text('Would you like to reserve seating?').appendTo('#wrapper');
@@ -33,7 +33,7 @@ const renderSeats = function(talks) {
   $('<div>').text('stage').appendTo('#wrapper');
 
   $('<div id="seat-plan">').appendTo('#wrapper')
-  talks.forEach((v) => seatingPlan(v))
+  talks.forEach((v) => seatingPlan(v, qty))
   $('#zuckerberg-seats').toggle()
 
   $('<select>').appendTo('#wrapper')
