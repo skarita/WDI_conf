@@ -7,17 +7,11 @@
     background-color: $secondary-color;
 
     .location-top {
-
-      #location {
-        margin-bottom: 1.2em;
-      }
-
-
       width: 100%;
       height: 40%;
       text-align: center;
       font-weight: bold;
-      background-color: $primary-color;
+      background-color: $secondary-color;
 
       h1 {
         font-size: 2.5em;
@@ -29,12 +23,13 @@
     .location-bottom {
       width: 100%;
       height: 60%;
+      padding: 3em;
 
       #map {
-      width: 100%;
-      height: 400px;
-      background-color: grey;
-    }
+        width: 100%;
+        height: 100%;
+        background-color: grey;
+      }
     }
 
 }

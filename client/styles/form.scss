@@ -4,17 +4,29 @@ $main-font: 'Dosis', sans-serif;
 $primary-color: #DB700A;
 $secondary-color: #FFFFFF;
 
-// TODO on payment form
-// 1) get the qty to increase the Total price
-// 2) line up cancel and submit btn
-// 3) style the line breaks if possible
-
 #submit-btn {
-  display: inline-block;;
+  display: inline-block;
+  margin: .5em auto;
+  width: 10em;
+  padding: 1.2em;
+  background-color: $primary-color;
+  text-align: center;
+  border-radius: 5px;
+  color: $secondary-color;
+  border: none;
 }
 
 .home-link {
   display: inline-block;
+  margin-left: .5em;
+
+  button {
+    width: 10em;
+    padding: 1.15em;
+    border: none;
+    border-radius: 5px;
+    color: $secondary-color;
+  }
 }
 
 #modal-wrapper {
@@ -31,6 +43,7 @@ $secondary-color: #FFFFFF;
       // margin: 0 auto;
       border-radius: 5px;
       background: rgba(255,255,255,.95);
+      transition: all 1s;
 
       .close-btn {
         position: fixed;
@@ -81,25 +94,38 @@ $secondary-color: #FFFFFF;
       margin: 0 0.4em;
       cursor: pointer;
       border-radius: 10px;
-      -webkit-touch-callout: none; /* iOS Safari */
-        -webkit-user-select: none; /*Chrome/Safari/Opera */
-           -moz-user-select: none; /* Firefox */
-            -ms-user-select: none; /* Internet Explorer/Edge */
-                user-select: none; /* Non-prefixed version, currently
-                                  not supported by any browser */
+      box-shadow: .2px .2px .2px;
+    }
+
+    #plus-btn:hover {
+      box-shadow: 0px 0px 0px;
+    }
+    #less-btn:hover {
+      box-shadow: 0px 0px 0px;
     }
 
     .num-input {
-      margin: 1em 0;
+      margin: 0 0 2em 0;
     }
 
     #payment-form {
-      font-family: 'Dosis', sans-serif;
+      font-family: $main-font;
       width: 95%;
       margin: 0 auto;
       margin-top: 3em;
     }
 
+  }
+}
+
+.loader-wrapper {
+
+  h2 {
+    text-align: center;
+    font-size: 2em;
+    font-family: $header-font;
+    margin-top: 1.5em;
+    color: $primary-color;
   }
 }
 
@@ -112,13 +138,13 @@ $secondary-color: #FFFFFF;
   height: 4em;
 }
 .loader {
+  display: block;
   color: $primary-color;
   margin: 0 auto;
-  position: absolute;
+  position: relative;
   transform: translateZ(0);
   animation-delay: -0.16s;
   z-index: 1;
-  left: 13em;
   top: 15em;
 }
 .loader:before,
