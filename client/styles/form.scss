@@ -100,6 +100,22 @@ $secondary-color: #FFFFFF;
       margin-top: 3em;
     }
 
+    #confirmation-form {
+      font-family: 'Dosis', sans-serif;
+      width: 95%;
+      margin: 0 auto;
+      margin-top: 3em;
+
+      h1 {
+        font-size: 1.2em;
+        margin: 1em auto;
+      }
+
+      p {
+        margin: 0.6em auto;
+      }
+    }
+
   }
 }
 
