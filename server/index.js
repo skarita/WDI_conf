@@ -72,7 +72,7 @@ app.post('/pay', bodyparser(), function(request, response) {
       response.json(err)
     } else {
       console.log(charge)
-      sendConfEmail(request.body.email)
+      sendConfEmail(request.body.email, request.body.name, request.body.quantity)
       saveToDb(request.body.name, request.body.email)
       fetch('https://api.mlab.com/api/1/databases/wdi_conf/collections/talks?apiKey=' + mLabKey)
         .then(function(res) {
@@ -81,7 +81,6 @@ app.post('/pay', bodyparser(), function(request, response) {
         .then((json) => response.json(json))
     }
   });
-<<<<<<< HEAD
 
   fetch('https://api.mlab.com/api/1/databases/wdi_conf/collections/ticketholder?apiKey=' + mLabKey, {
     method: 'POST',
@@ -96,8 +95,6 @@ app.post('/pay', bodyparser(), function(request, response) {
       console.log(json)
     })
 
-=======
->>>>>>> 457416029673c829b1c6b71c84524cdf452b76bb
 });
 
 // Start server

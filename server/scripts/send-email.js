@@ -1,11 +1,11 @@
 const key = require('./secret-sauce').sendGridKey
 
-const sendConfEmail = function(user_email) {
+const sendConfEmail = function(user_email, name, quantity) {
   var helper = require('sendgrid').mail;
   var from_email = new helper.Email('test@example.com');
   var to_email = new helper.Email(user_email);
-  var subject = 'Hello World from the SendGrid Node.js Library!';
-  var content = new helper.Content('text/plain', 'Hello, Email!');
+  var subject = 'Your Ticket Order Confirmation';
+  var content = new helper.Content('text/plain', `Thank you ${name}, your reservation for ${quantity} ticket(s) has been confirmed!` );
   var mail = new helper.Mail(from_email, subject, to_email, content);
 
   var sg = require('sendgrid')(key);
