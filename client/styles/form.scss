@@ -131,6 +131,17 @@ $secondary-color: #FFFFFF;
       }
     }
 
+    #home-btn {
+      display: inline-block;
+      margin: .5em auto;
+      width: 10em;
+      padding: 1.2em;
+      background-color: $primary-color;
+      text-align: center;
+      border-radius: 5px;
+      color: $secondary-color;
+      border: none;
+    }
   }
 }
 
