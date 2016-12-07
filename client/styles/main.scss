@@ -89,6 +89,10 @@
           transition: .1s;
           cursor: pointer;
 
+          a {
+            text-decoration: none;
+          }
+
           a:hover {
             color: $primary-color;
           }

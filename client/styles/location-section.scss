@@ -1,0 +1,19 @@
+@import "_variables";
+@import "_fonts";
+
+.location-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: $secondary-color;
+
+  .location-top {
+    width: 100%;
+    background-color: $primary-color;
+
+    h1 {
+      font-size: 2.5em;
+      text-align: center;
+      font-family: $header-font;
+    }
+  }
+}
