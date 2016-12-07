@@ -6,7 +6,7 @@ $secondary-color: #FFFFFF;
 
 #submit-btn {
   display: inline-block;
-  margin: 1.8em auto;
+  margin: .5em auto;
   width: 10em;
   padding: 1.2em;
   background-color: $primary-color;
@@ -105,7 +105,7 @@ $secondary-color: #FFFFFF;
     }
 
     .num-input {
-      margin: 2em 0;
+      margin: 0 0 2em 0;
     }
 
     #payment-form {
@@ -118,6 +118,17 @@ $secondary-color: #FFFFFF;
   }
 }
 
+.loader-wrapper {
+
+  h2 {
+    text-align: center;
+    font-size: 2em;
+    font-family: $header-font;
+    margin-top: 1.5em;
+    color: $primary-color;
+  }
+}
+
 .loader,
 .loader:before,
 .loader:after {
@@ -127,13 +138,13 @@ $secondary-color: #FFFFFF;
   height: 4em;
 }
 .loader {
+  display: block;
   color: $primary-color;
   margin: 0 auto;
-  position: absolute;
+  position: relative;
   transform: translateZ(0);
   animation-delay: -0.16s;
   z-index: 1;
-  left: 13em;
   top: 15em;
 }
 .loader:before,
