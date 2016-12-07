@@ -109,12 +109,14 @@ var renderPaymentForm = function() {
   $('#plus-btn').on('click', function() {
     console.log("adding");
     $('#input-qty').val(Number($('#input-qty').val())+1);
+    $('#input-qty').trigger('input')
   });
 
   $('#less-btn').on('click', function() {
     console.log("subtracting");
     if ($('#input-qty').val() > 0) {
       $('#input-qty').val(Number($('#input-qty').val())-1);
+      $('#input-qty').trigger('input')
     }
   });
 
