@@ -76,7 +76,7 @@ const renderSeats = function(talks) {
     // }
   })
 
-  $('<button>').text('Submit').appendTo('#wrapper')
+  $('<button id="submit-reservation">').text('Submit').appendTo('#wrapper')
 }
 
 module.exports = renderSeats;
