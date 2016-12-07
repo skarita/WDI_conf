@@ -8,7 +8,7 @@ var stripeResponseHandler = function (status, response) {
   if (response.error) { // Problem!
 
     $('.loader').remove();
-    $('#payment-form').show();
+    $('#payment-form').show().fadeIn();
 
     // Show the errors on the form:
     $('.payment-errors').text(response.error.message);
@@ -36,7 +36,7 @@ var stripeResponseHandler = function (status, response) {
       data: formData
     }).done(function(res) {
       $('.loader').remove();
-      renderSeats(res)
+      renderSeats(res, parseInt(formData.quantity))
     })
 
   }

@@ -26,32 +26,30 @@ app.get('/testget', function(req, res) {
 })
 
 app.post('/reserve', bodyparser(), function(req, res) {
-  console.log(
-    'https://api.mlab.com/api/1/databases/wdi_conf/collections/talks?apiKey='
-    + mLabKey
-    + '&q={"presenter":"'
-    + req.body.presenter
-    + '"}'
-  )
-  console.log(JSON.stringify({
-        $set: req.body.reserved
-      }))
-  fetch(
-    'https://api.mlab.com/api/1/databases/wdi_conf/collections/talks?apiKey='
-    + mLabKey
-    + '&q={"presenter":"'
-    + req.body.presenter
-    + '"}', {
-      method: 'PUT',
-      body: JSON.stringify({
-        $set: req.body.reserved
-      }),
-      headers: {'Content-Type' : 'application/json'}
-      }).then(function(response) {
-        return response.json()
-      }).then(function(json) {
-        res.json(json)
+  Object.keys(req.body).forEach(function(key) {
+    saveReservation(key, req.body[key])
+  })
+  function saveReservation(name, seats) {
+    var setData = {}
+    seats.forEach((e) => setData[e] = 'reserved')
+    fetch(
+      'https://api.mlab.com/api/1/databases/wdi_conf/collections/talks?apiKey='
+      + mLabKey
+      + '&q={"presenter":"'
+      + name
+      + '"}', {
+        method: 'PUT',
+        body: JSON.stringify({
+          $set: setData
+        }),
+        headers: {'Content-Type' : 'application/json'}
+      }
+    ).then(function(response) {
+      return response.json()
+    }).then(function(json) {
+      res.json(json)
     })
+  }
 })
 
 app.post('/pay', bodyparser(), function(request, response) {
@@ -81,20 +79,6 @@ app.post('/pay', bodyparser(), function(request, response) {
         .then((json) => response.json(json))
     }
   });
-
-  fetch('https://api.mlab.com/api/1/databases/wdi_conf/collections/ticketholder?apiKey=' + mLabKey, {
-    method: 'POST',
-    body: JSON.stringify( {
-      name: request.body.name,
-      email: request.body.email
-     }),
-    headers: {'Content-Type' : 'application/json'}
-    }).then(function(res) {
-      return res.json()
-    }).then(function(json) {
-      console.log(json)
-    })
-
 });
 
 // Start server
