@@ -23,7 +23,7 @@ var renderLandingPage = function() {
 
   $('.buy-ticket-btn, #fourth').click(function() {
 
-    $('<div id="modal-wrapper" class="modal">').appendTo('#root');
+    $('<div id="modal-wrapper" class="modal">').appendTo('#root').hide().fadeIn();
     $('<div id="payment-form-modal" class="modal">').appendTo('#modal-wrapper');
       renderPaymentForm()
   })

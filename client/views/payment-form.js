@@ -64,7 +64,7 @@ var renderPaymentForm = function() {
 
     } else {
 
-      $('#payment-form').hide();
+      $('#payment-form').hide().fadeOut();
       $('<div class="loader-wrapper">').appendTo('#payment-form-modal')
       $('<div class="loader">').appendTo('.loader-wrapper');
       $('<h2>').text('Processing Payment').appendTo('.loader-wrapper');

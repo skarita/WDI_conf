@@ -6,8 +6,10 @@
   height: 100%;
   background-color: $primary-color;
   overflow: hidden;
+  color: $secondary-color;
 
   #cloud {
+    height: 65%;
     font-size: 2.5em;
     text-align: center;
     font-family: $header-font;
@@ -18,13 +20,21 @@
     height: 90%;
     text-align: center;
     font-weight: bold;
-    background-color: $primary-color;
+
+    h2 {
+      font-size: 2.5em;
+      margin-bottom: .5em;
+    }
+
+    img {
+      padding: .5em;
+      margin: .5em;
+      width: 5em;
+      vertical-align: middle;
+    }
   }
 }
 
-/*Lets start with the cloud formation rather*/
-/*The container will also serve as the SKY*/
-/*Time to finalise the cloud shape*/
 .cloud {
 	width: 200px; height: 60px;
 	background: rgba(255, 222, 172, 1);
@@ -97,5 +107,4 @@
 @-webkit-keyframes moveclouds {
 	0% {margin-left: 1000px;}
 	100% {margin-left: -1000px;}
-
 }

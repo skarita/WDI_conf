@@ -16,9 +16,11 @@ var renderFooterSection = function() {
 
   $('<div class="footer-content">').appendTo('.footer-wrapper');
 
-  $('<h2>').text('Text for footer will go here..').appendTo('.footer-content');
-
-
+  $('<h2>').text('Contact Us').appendTo('.footer-content');
+  $('<p>').text('Do you have any questions? Please let us know.').appendTo('.footer-content');
+  $('<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/F_icon.svg/1024px-F_icon.svg.png">').appendTo('.footer-content');
+  $('<img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/1259px-Twitter_bird_logo_2012.svg.png">').appendTo('.footer-content');
+  $('<img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ec/Gmail_Logo.svg/1280px-Gmail_Logo.svg.png">').appendTo('.footer-content');
 
 }
 
