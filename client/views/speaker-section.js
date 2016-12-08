@@ -68,6 +68,11 @@ var renderSpeakerSection = function() {
     $('.res-bio li').css('color', '#DB700A')
     $(this).children().fadeToggle();
   })
+  $('.speaker-card').mouseleave(function() {
+    $(this).children('.res-bio').fadeOut()
+    $(this).children('h2').fadeIn()
+    $(this).children('.img-card').fadeIn()
+  })
 
 }
 
