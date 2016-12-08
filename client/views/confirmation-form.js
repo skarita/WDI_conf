@@ -2,7 +2,8 @@ const $ = require('jquery')
 
 var renderConfirmation = function() {
 
-  $('<div id="confirmation-form" class="modal">').appendTo('#modal-wrapper')
+  $('<div id="confirmation-wrapper" class="modal">').appendTo('#modal-wrapper')
+  $('<div id="confirmation-form">').appendTo('#confirmation-wrapper')
 
   $('<h1>').text('Thank you! Your payment was processed successfully.').appendTo('#confirmation-form')
 
