@@ -60,18 +60,13 @@ var renderSpeakerSection = function() {
   $('<img src="http://www.classtools.net/_FAKEBOOK/images//o/otto_von_bismarck.jpg?247">').appendTo('#otto-card');
   $('<div class="res-bio" id="otto-bio">').appendTo('#otto');
   $('<ul id="otto-ul">').appendTo('#otto-bio');
-  $('<li class="bio">').text('Founder and first chancellor of the German Empire. Prime minister of Prussia. Widely regared as the greatest German statesman.').appendTo('#otto-ul');
+  $('<li class="bio">').text('Founder and first chancellor of the German Empire. Prime minister of Prussia. Widely regarded as the greatest German statesman.').appendTo('#otto-ul');
 
   $('.res-bio').hide();
   $('.speaker-card').on('click', function(event) {
 
     $('.res-bio li').css('color', '#DB700A')
     $(this).children().fadeToggle();
-  })
-  $('.speaker-card').mouseleave(function() {
-    $(this).children('.res-bio').fadeOut()
-    $(this).children('h2').fadeIn()
-    $(this).children('.img-card').fadeIn()
   })
 
 }

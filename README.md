@@ -20,7 +20,7 @@ A project for General Assembly's WDI course, we (The Gentlemen's Whisky & Pipe-S
 * Heroku
 
 ### Issues Faced:
-Our main challenge was learning several new tools in a short timeframe (but then, this was also the point of doing the project). None of us had experience with MongoDB, Stripe, or SendGrid, and only very limited experience devoloping Node backends or using build tools like webpack.
+Our main challenge was learning several new tools in a short timeframe (but then, this was also the point of doing the project). None of us had experience with MongoDB, Stripe, or SendGrid, and only very limited experience developing Node backends or using build tools like webpack.
 
 Working out how to fit all these parts together was frustrating but also rewarding.
 
