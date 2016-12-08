@@ -8,8 +8,8 @@ const bodyparser = require('body-parser')
 const sendConfEmail = require('./scripts/send-email')
 const saveToDb = require('./scripts/save-user-to-db')
 
-app.use(express.static('../scripts'));
-app.use(express.static('../views'));
+// app.use(express.static('./scripts'));
+app.use(express.static(__dirname + '/../dist'));
 
 // Routes
 app.get('/', function(req, res) {

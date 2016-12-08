@@ -4,7 +4,8 @@
   "description": "WDI Project 4",
   "main": "index.js",
   "scripts": {
-    "serve": "webpack-dev-server  --watch"
+    "serve": "webpack-dev-server  --watch",
+    "webpack": "webpack -p"
   },
   "repository": {
     "type": "git",
