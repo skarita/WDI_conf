@@ -8,10 +8,21 @@
   width: 2em;
   border-radius: 100%;
   margin-right: 5px;
+  transition: transform .25s ease-out;
+  cursor: pointer;
+}
+
+.seat:hover {
+  transform: scale(1.2);
 }
 
 .reserved {
   background: grey;
+  cursor: default;
+}
+
+.reserved:hover {
+  transform: none;
 }
 
 .seat-selected {
