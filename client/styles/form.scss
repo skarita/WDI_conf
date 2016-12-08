@@ -14,6 +14,11 @@ $secondary-color: #FFFFFF;
   border-radius: 5px;
   color: $secondary-color;
   border: none;
+  cursor: pointer;
+}
+
+#cancel-btn {
+  cursor: pointer;
 }
 
 .home-link {
@@ -26,6 +31,7 @@ $secondary-color: #FFFFFF;
     border: none;
     border-radius: 5px;
     color: $secondary-color;
+    cursor: pointer;
   }
 }
 
@@ -169,7 +175,8 @@ $secondary-color: #FFFFFF;
     border-radius: 5px;
     color: $secondary-color;
     border: none;
-  };
+    cursor: pointer;
+  }
 }
 
 
