@@ -1,0 +1,60 @@
+@media (min-width: 500px) {
+  .home-wrapper {
+
+    .home-main {
+
+      .home-nav {
+
+        .nav-ticket-btn {
+          padding: 1%;
+        }
+
+        ul li {
+          padding: 0;
+          margin: .5em;
+          width: 20%;
+        }
+      }
+
+      .home-top-wrapper {
+        padding: 15% 20% 2% 20%;
+
+        h1 {
+          margin-bottom: 0em;
+        }
+      }
+
+      .home-middle-wrapper {
+
+        .home-middle-location {
+          font-size: 2em;
+
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .home-wrapper {
+
+    .home-main {
+
+      .home-nav {
+
+        ul li {
+          width: 22.5%;
+        }
+      }
+
+      .home-top-wrapper {
+        padding: 10% 20% 2% 20%;
+
+        h1 {
+          font-size: 5em;
+          margin-bottom: 0em;
+        }
+      }
+    }
+  }
+}
