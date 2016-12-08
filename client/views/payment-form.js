@@ -42,9 +42,7 @@ var renderPaymentForm = function() {
   $('<span class="payment-errors">').appendTo('#payment-form')
 
   $('.close-btn').click(function() {
-
     $('#modal-wrapper').remove();
-
   });
 
   $('#submit-btn').click(function() {

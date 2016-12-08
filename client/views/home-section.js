@@ -6,8 +6,8 @@ var renderHomeSection = function() {
   $('<div class="home-main">').appendTo('.home-wrapper')
 
   // nav menu section
+  $('<nav class="home-nav">').appendTo('.home-main')
   $('<section class="home-top-wrapper">').appendTo('.home-main')
-  $('<nav class="home-nav">').appendTo('.home-top-wrapper')
   $('<ul>').appendTo('.home-nav')
   $('<li> <a id="first" href="#speakers">').appendTo('ul')
   $('<li> <a id="second" href="#sponsors">').appendTo('ul')
@@ -30,6 +30,15 @@ var renderHomeSection = function() {
   $('<div class="home-bottom-button">').appendTo('.home-bottom-wrapper')
   $('<a class="buy-ticket-btn">').text('Buy Tickets').appendTo('.home-bottom-button')
 
+  // change nav background on scroll
+  $(window).scroll(function() {
+    var scroll = $(window).scrollTop()
+    if (scroll >= 150) {
+      $('.home-nav').addClass('nav-scrolled');
+    } else {
+      $('.home-nav').removeClass('nav-scrolled');
+    }
+  })
 }
 
 module.exports = renderHomeSection;
