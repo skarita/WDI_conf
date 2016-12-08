@@ -15,7 +15,7 @@ var renderSpeakerSection = function() {
   $('<img src="http://i.imgur.com/uRWMr5W.jpg">').appendTo('#mark-card');
   $('<div class="res-bio" id="mark-bio">').appendTo('#mark');
   $('<ul id="mark-ul">').appendTo('#mark-bio');
-  $('<li class="bio">').text('hello').appendTo('#mark-ul');
+  $('<li class="bio">').text('CEO, chairman and co-founder of Facebook. American computer programmer, internet entrepreneur, and philanthropist.').appendTo('#mark-ul');
 
   // Elon Musk
   $('<div class="speaker-card" id="elon">').appendTo('.speaker-list');
@@ -24,7 +24,7 @@ var renderSpeakerSection = function() {
   $('<img src="https://pbs.twimg.com/profile_images/782474226020200448/zDo-gAo0_400x400.jpg">').appendTo('#elon-card');
   $('<div class="res-bio" id="elon-bio">').appendTo('#elon');
   $('<ul id="elon-ul">').appendTo('#elon-bio');
-  $('<li class="bio">').text('hello').appendTo('#elon-ul');
+  $('<li class="bio">').text('Founder, CEO and CTO of SpaceX, CEO of Tesla Mortors, co-founder of SolarCity; co-chairman of OpenAI, co-founder of Zip2 and founder of X.com.').appendTo('#elon-ul');
 
   // Bill Gates
   $('<div class="speaker-card" id="bill">').appendTo('.speaker-list');
@@ -33,7 +33,7 @@ var renderSpeakerSection = function() {
   $('<img src="http://i.imgur.com/VMAHNMF.jpg">').appendTo('#bill-card');
   $('<div class="res-bio" id="bill-bio">').appendTo('#bill');
   $('<ul id="bill-ul">').appendTo('#bill-bio');
-  $('<li class="bio">').text('hello').appendTo('#bill-ul');
+  $('<li class="bio">').text('co-founder of Microsoft and wealthiest person in the world. American business magnate, investor, author and philanthropist.').appendTo('#bill-ul');
 
   // Marissa Mayer
   $('<div class="speaker-card" id="marissa">').appendTo('.speaker-list');
@@ -42,7 +42,7 @@ var renderSpeakerSection = function() {
   $('<img src="http://i.forbesimg.com/media/lists/people/marissa-mayer_416x416.jpg">').appendTo('#marissa-card');
   $('<div class="res-bio" id="marissa-bio">').appendTo('#marissa');
   $('<ul id="marissa-ul">').appendTo('#marissa-bio');
-  $('<li class="bio">').text('hello').appendTo('#marissa-ul');
+  $('<li class="bio">').text('American information technology executive. President and CEO of Yahoo!').appendTo('#marissa-ul');
 
   // Daniel Tsui
   $('<div class="speaker-card" id="dt">').appendTo('.speaker-list');
@@ -65,8 +65,8 @@ var renderSpeakerSection = function() {
   $('.res-bio').hide();
   $('.speaker-card').on('click', function(event) {
 
-    $(event.target).children().slideToggle();
-
+    $('.res-bio li').css('color', '#DB700A')
+    $(this).children().fadeToggle();
   })
 
 }
