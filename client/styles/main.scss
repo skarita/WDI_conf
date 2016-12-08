@@ -12,6 +12,54 @@
     width: 100%;
     height: 100%;
 
+    .home-nav {
+      width: 100%;
+      position: fixed;
+      z-index: 1000;
+      transition: background-color 0.5s ease;
+
+      ul li {
+        display: inline-block;
+        color: $secondary-color;
+        margin: .8%;
+        padding: 5%;
+        width: 22.5%;
+        font-size: 1em;
+        text-align: center;
+        vertical-align: middle;
+        transition: .1s;
+        cursor: pointer;
+
+        a {
+          text-decoration: none;
+        }
+
+        a:hover {
+          color: $primary-color;
+        }
+
+        #fourth:hover {
+          color: $secondary-color;
+        }
+      }
+
+      .nav-ticket-btn {
+        background-color: $primary-color;
+        padding: 2.1%;
+        margin-left: 1%;
+        border-radius: 5px;
+      }
+
+      .nav-ticket-btn:hover {
+        animation: bounce 1s;
+        cursor: pointer;
+      }
+    }
+
+    .nav-scrolled {
+      background: rgba(0, 0, 0, .5);
+    }
+
     .home-middle-wrapper {
       width: 100%;
       text-align: center;
@@ -64,59 +112,15 @@
 
     .home-top-wrapper {
       width: 100%;
-
-      ul {
-
-      }
+      padding-top: 45%;
 
       h1 {
         text-align: center;
         display: block;
-        margin: 2em 0 .5em 0;
+        margin-bottom: .5em;
         font-size: 3em;
         font-family: $header-font;
         color: $secondary-color;
-      }
-
-      .home-nav {
-        width: 100%;
-
-        ul li {
-          display: inline-block;
-          color: $secondary-color;
-          margin: .8%;
-          padding: 5%;
-          width: 22.5%;
-          font-size: 1em;
-          text-align: center;
-          vertical-align: middle;
-          transition: .1s;
-          cursor: pointer;
-
-          a {
-            text-decoration: none;
-          }
-
-          a:hover {
-            color: $primary-color;
-          }
-
-          #fourth:hover {
-            color: $secondary-color;
-          }
-        }
-
-        .nav-ticket-btn {
-          background-color: $primary-color;
-          padding: 2.1%;
-          margin-left: 1%;
-          border-radius: 5px;
-        }
-
-        .nav-ticket-btn:hover {
-          animation: bounce 1s;
-          cursor: pointer;
-        }
       }
     }
   }
