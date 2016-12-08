@@ -8,9 +8,10 @@ var renderLocationSection = function() {
   $('<div class="location-bottom">').appendTo('.location-wrapper');
 
   $('<h1 id="location">').text('Location').appendTo('.location-top');
-  $('<p>').text('General Assembly').appendTo('.location-top');
-  $('<p>').text('Level 12A').appendTo('.location-top');
-  $('<p>').text('45, William St, Melbourne VIC 3000').appendTo('.location-top');
+  $('<div class="location-content">').appendTo('.location-top');
+  $('<p>').text('General Assembly').appendTo('.location-content');
+  $('<p>').text('Level 12A').appendTo('.location-content');
+  $('<p>').text('45, William St, Melbourne VIC 3000').appendTo('.location-content');
 
   // displaying google map with a marker of the location-top
   $('<div id="map">').appendTo('.location-bottom')

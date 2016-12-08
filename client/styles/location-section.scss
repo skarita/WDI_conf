@@ -17,6 +17,20 @@
         text-align: center;
         font-family: $header-font;
       }
+
+      .location-content {
+        width: 50%;
+        height: 80%;
+        margin: 1% auto;
+        font-size: 1.5em;
+        border-top: 2px solid $secondary-color;
+        border-bottom: 2px solid $secondary-color;
+
+        p:first-child {
+          margin-top: 1.3em;
+        }
+      }
+
     }
 
     .location-bottom {
