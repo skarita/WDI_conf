@@ -36,6 +36,13 @@
 }
 
 @media (min-width: 700px) {
+  #modal-wrapper .modal {
+    width: 685px;
+    margin: 2% auto;
+    left: 0;
+    right: 0;
+  }
+  
   .home-wrapper {
 
     .home-main {
