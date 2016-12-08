@@ -6,9 +6,10 @@ const validateEmail = require('../scripts/email-verify.js')
 
 var renderPaymentForm = function() {
 
+  $('<span class="close-btn">').text('✘').appendTo('#payment-form-modal')
+  
   $('<div id="payment-form">').appendTo('#payment-form-modal')
 
-  $('<span class="close-btn">').text('✘').appendTo('#payment-form-modal')
   $('<label class="num-ticket">').text('Number of Tickets: ').appendTo('#payment-form')
   $('<input id="input-qty" class="num-input" type="text" value="1" name="quantity">').appendTo('#payment-form')
   $('<span id=plus-btn>').text("+").appendTo('#payment-form')

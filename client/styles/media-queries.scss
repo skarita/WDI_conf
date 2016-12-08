@@ -1,4 +1,8 @@
 @media (min-width: 500px) {
+  .speaker-wrapper {
+    padding-top: 9%;
+  }
+
   .home-wrapper {
 
     .home-main {
@@ -36,6 +40,39 @@
 }
 
 @media (min-width: 700px) {
+  #modal-wrapper .modal {
+    width: 685px;
+    margin: 2% auto;
+    left: 0;
+    right: 0;
+  }
+
+  .speaker-wrapper {
+    padding-top: 9%;
+
+    .speaker-list {
+      margin-top: 10%;
+    }
+  }
+
+  .sponsors-wrapper {
+    padding-top: 5%;
+
+    .sponsors-list {
+      width: 685px;
+      margin: 2% auto;
+    }
+  }
+
+  .location-wrapper {
+    padding-top: 9%;
+
+    .location-bottom {
+      width: 700px;
+      margin: 0 auto;
+    }
+  }
+
   .home-wrapper {
 
     .home-main {
@@ -55,6 +92,16 @@
           margin-bottom: 0em;
         }
       }
+    }
+  }
+}
+
+@media (min-width: 860px) {
+  .speaker-wrapper {
+    padding-top: 10vh;
+
+    .speaker-list {
+      margin-top: 10vh;
     }
   }
 }

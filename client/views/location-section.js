@@ -3,11 +3,11 @@ const $ = require('jquery')
 var renderLocationSection = function() {
 
   // location section with map of GA
-  $('<div class="location-wrapper">').appendTo('.home-wrapper');
+  $('<div class="location-wrapper" id="location">').appendTo('.home-wrapper');
   $('<div class="location-top">').appendTo('.location-wrapper');
   $('<div class="location-bottom">').appendTo('.location-wrapper');
 
-  $('<h1 id="location">').text('Location').appendTo('.location-top');
+  $('<h1>').text('Location').appendTo('.location-top');
   $('<div class="location-content">').appendTo('.location-top');
   $('<p>').text('General Assembly').appendTo('.location-content');
   $('<p>').text('Level 12A').appendTo('.location-content');
