@@ -29,16 +29,18 @@ const seatingPlan = (talk, qty) => {
 const renderSeats = function(talks, qty) {
   $('<div id="wrapper" class="modal">').appendTo('#payment-form-modal');
   $('<span class="close-btn">').text('✘').appendTo('#wrapper')
-  $('<h5>').text('Payment Sucessful').appendTo('#wrapper');
-  $('<p>').text('Would you like to reserve seating?').appendTo('#wrapper');
-  $('<button id="skip-btn">').text('Skip').appendTo('#wrapper');
-  $('<div>').text('stage').appendTo('#wrapper');
+  $('<div id="seat-reserve-wrapper">').appendTo('#wrapper')
+  $('<h5>').text('Payment Sucessful').appendTo('#seat-reserve-wrapper');
+  $('<p>').text('Would you like to reserve seating?').appendTo('#seat-reserve-wrapper');
+  $('<button id="skip-btn">').text('Skip').appendTo('#seat-reserve-wrapper');
+  $('<div id="stage-div">').text('stage').appendTo('#seat-reserve-wrapper');
 
-  $('<div id="seat-plan">').appendTo('#wrapper')
+  $('<div id="seat-plan">').appendTo('#seat-reserve-wrapper')
   talks.forEach((v) => seatingPlan(v, qty))
   $('#zuckerberg-seats').toggle()
 
-  $('<select>').appendTo('#wrapper')
+  $('<div>').text('Choose your speaker:').appendTo('#seat-reserve-wrapper')
+  $('<select>').appendTo('#seat-reserve-wrapper')
   talks.forEach((v) => {
     $('<option>').text(v.presenter).appendTo($('select'))
   })
@@ -51,7 +53,7 @@ const renderSeats = function(talks, qty) {
 
   var formData = {}
 
-  $('<button id="submit-reservation">').text('Submit').appendTo('#wrapper')
+  $('<button id="submit-reservation">').text('Submit').appendTo('#seat-reserve-wrapper')
   $('#submit-reservation').click(function() {
     $('.plan').each(function(index, plan) {
       if ($(plan).find('.seat-selected').length > 0) {

@@ -1,8 +1,11 @@
+@import "_variables";
+@import "_fonts";
+
 .seat {
   display: inline-block;
   border: 2px solid black;
-  height: 15px;
-  width: 15px;
+  height: 2em;
+  width: 2em;
   border-radius: 100%;
   margin-right: 5px;
 }
@@ -13,4 +16,52 @@
 
 .seat-selected {
   background: blue;
+}
+
+#seat-reserve-wrapper {
+
+  width: 80%;
+  font-family: $main-font;
+  margin: 3em auto 0;
+  text-align: center;
+
+
+  h5 {
+    border: 1px solid black;
+    border-radius: 10px;
+    font-family: $header-font;
+  }
+
+  #skip-btn {
+    display: inline-block;
+    margin: .5em auto;
+    width: 5em;
+    padding: 1.2em;
+    background-color: $primary-color;
+    text-align: center;
+    border-radius: 5px;
+    color: $secondary-color;
+    border: none;
+  }
+
+  #stage-div {
+    border: 2px solid black;
+    border-top: none;
+    margin: 2em auto 1em;
+    width: 150px;
+  }
+
+  #submit-reservation {
+    display: block;
+    margin: 3em auto;
+    width: 9em;
+    padding: 1.2em;
+    background-color: $primary-color;
+    text-align: center;
+    border-radius: 5px;
+    color: $secondary-color;
+    border: none;
+    text-align: center;
+  }
+
 }

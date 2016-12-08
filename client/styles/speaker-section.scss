@@ -4,7 +4,7 @@
 .speaker-wrapper {
   width: 100%;
   height: 100%;
-  background-color: $secondary-color;
+  background: inherit;
 
   h1 {
     font-size: 2.5em;
@@ -17,21 +17,53 @@
     height: 85%;
     display: block;
     position: absolute;
-    background-color: $primary-color;
     margin: 17.5% 2.5% 2.5% 2.5%;
     padding: 2.5%;
 
     .speaker-card {
-      height: 19%;
       width: 95%;
-    }
+      border-bottom: .5px solid #FFFEFC;
+      transition: 1s;
+      position: static;
+      background-color: $primary-color;
 
-    .pic {
-      height: 108px;
-      float: right;
-      border-radius: 100%;
-      border: 3px solid #5F9F9F;
-      margin-top: -20px;
+      h2 {
+        width: 70%;
+        display: inline-block;
+        font-size: 1.2em;
+        color: white;
+      }
+
+      .res-bio {
+        background-color: $secondary-color;
+
+        li {
+          list-style: none;
+        }
+      }
+
+      .img-card {
+        width: 30%;
+        display: inline-block;
+        vertical-align: middle;
+
+        img {
+          width: 3.5em;
+          display: inline-block;
+          border-radius: 100%;
+          margin: .5em;
+          border: 2px solid $secondary-color;
+          transition: 1s;
+        }
+      }
+    }
+    .speaker-card:hover {
+      width: 98%;
+      height: 6em;
+
+      img {
+        width: 4.5em;
+      }
     }
   }
 }
