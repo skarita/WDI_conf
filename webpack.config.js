@@ -1,6 +1,7 @@
 module.exports = {
   entry: './client',
   output: {
+    path: __dirname + '/dist',
     filename: 'bundle.js'
   },
   module: {
