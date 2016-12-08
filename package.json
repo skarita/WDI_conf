@@ -1,10 +1,15 @@
 {
   "name": "wdi_conf",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.6.0"
+  },
   "description": "WDI Project 4",
   "main": "index.js",
   "scripts": {
-    "serve": "webpack-dev-server  --watch"
+    "start": "node server/index.js",
+    "serve": "webpack-dev-server  --watch",
+    "webpack": "webpack -p"
   },
   "repository": {
     "type": "git",
