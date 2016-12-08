@@ -38,7 +38,7 @@ $secondary-color: #FFFFFF;
       top: 0;
       width: 96.5%; /* Full width */
       height: 95.5%; /* Full height */
-      overflow: scroll; /* Enable scroll if needed */
+      overflow: auto; /* Enable scroll if needed */
       margin: 2% 2.5% 2% 2%;
       // margin: 0 auto;
       border-radius: 5px;
@@ -46,9 +46,8 @@ $secondary-color: #FFFFFF;
       transition: all 1s;
 
       .close-btn {
-        position: fixed;
-        top: 1.0em;
-        right: 1.0em;
+        position: absolute;
+        right: .5em;
         font-size: 1.5em;
       }
 
