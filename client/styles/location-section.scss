@@ -4,14 +4,13 @@
 .location-wrapper {
     width: 100%;
     height: 100%;
-    background-color: $secondary-color;
+    background: inherit;
 
     .location-top {
       width: 100%;
       height: 40%;
       text-align: center;
       font-weight: bold;
-      background-color: $secondary-color;
 
       h1 {
         font-size: 2.5em;
