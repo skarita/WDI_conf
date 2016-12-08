@@ -34,7 +34,7 @@ $secondary-color: #FFFFFF;
   .modal {
       position: fixed; /* Stay in place */
       display: block;
-      z-index: 1; /* Sit on top */
+      z-index: 2; /* Sit on top */
       top: 0;
       width: 96.5%; /* Full width */
       height: 95.5%; /* Full height */
