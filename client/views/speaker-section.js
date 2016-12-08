@@ -33,7 +33,7 @@ var renderSpeakerSection = function() {
   $('<img src="http://i.imgur.com/VMAHNMF.jpg">').appendTo('#bill-card');
   $('<div class="res-bio" id="bill-bio">').appendTo('#bill');
   $('<ul id="bill-ul">').appendTo('#bill-bio');
-  $('<li class="bio">').text('co-founder of Microsoft and wealthiest person in the world. American business magnate, investor, author and philanthropist.').appendTo('#bill-ul');
+  $('<li class="bio">').text('Co-founder of Microsoft and wealthiest person in the world. American business magnate, investor, author and philanthropist.').appendTo('#bill-ul');
 
   // Marissa Mayer
   $('<div class="speaker-card" id="marissa">').appendTo('.speaker-list');
@@ -53,14 +53,14 @@ var renderSpeakerSection = function() {
   $('<ul id="dt-ul">').appendTo('#dt-bio');
   $('<li class="bio">').text('He\'s doing ok.').appendTo('#dt-ul');
 
-  // John Doe
-  $('<div class="speaker-card" id="john">').appendTo('.speaker-list');
-  $('<h2>').text('John Doe').appendTo('#john');
-  $('<div class="img-card" id="john-card">').appendTo('#john');
-  $('<img src="http://i.imgur.com/jX8TxER.jpg">').appendTo('#john-card');
-  $('<div class="res-bio" id="john-bio">').appendTo('#john');
-  $('<ul id="john-ul">').appendTo('#john-bio');
-  $('<li class="bio">').text('hello').appendTo('#john-ul');
+  // Otto von Bismarck
+  $('<div class="speaker-card" id="otto">').appendTo('.speaker-list');
+  $('<h2>').text('Otto von Bismarck').appendTo('#otto');
+  $('<div class="img-card" id="otto-card">').appendTo('#otto');
+  $('<img src="http://www.classtools.net/_FAKEBOOK/images//o/otto_von_bismarck.jpg?247">').appendTo('#otto-card');
+  $('<div class="res-bio" id="otto-bio">').appendTo('#otto');
+  $('<ul id="otto-ul">').appendTo('#otto-bio');
+  $('<li class="bio">').text('Founder and first chancellor of the German Empire. Prime minister of Prussia. Widely regared as the greatest German statesman.').appendTo('#otto-ul');
 
   $('.res-bio').hide();
   $('.speaker-card').on('click', function(event) {
