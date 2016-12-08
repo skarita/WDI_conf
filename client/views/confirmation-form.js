@@ -2,7 +2,7 @@ const $ = require('jquery')
 
 var renderConfirmation = function() {
 
-  $('<div id="confirmation-form">').appendTo('#root')
+  $('<div id="confirmation-form" class="modal">').appendTo('#modal-wrapper')
 
   $('<h1>').text('Thank you! Your payment was processed successfully.').appendTo('#confirmation-form')
 
@@ -10,8 +10,11 @@ var renderConfirmation = function() {
   $('<p>').text('If you have any comments or questions please do not hesitate to contact us:').appendTo('#confirmation-form')
   $('<p>').text('melbourne@generalassemb.ly').appendTo('#confirmation-form')
   $('<p>').text('(03) 8592 7303').appendTo('#confirmation-form')
-  $('<form action="/" class="home">').appendTo('#confirmation-form')
-  $('<button>').text('Home').attr('id', 'home-btn').appendTo('.home')
+  $('<button id="home-btn">').text('Home').attr('id', 'home-btn').appendTo('#confirmation-form')
+
+  $('#home-btn').click(function() {
+    $('#modal-wrapper').remove();
+  })
 
 }
 

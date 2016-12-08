@@ -1,5 +1,6 @@
 const $ = require('jquery')
 const fullNames = require('./../scripts/full-names.js')
+const renderConfirmationForm = require('./confirmation-form')
 
 const seatingPlan = (talk, qty) => {
   const presenter = talk.presenter.split(' ')[talk.presenter.split(' ').length - 1].toLowerCase()
@@ -27,9 +28,10 @@ const seatingPlan = (talk, qty) => {
 
 const renderSeats = function(talks, qty) {
   $('<div id="wrapper" class="modal">').appendTo('#payment-form-modal');
+  $('<span class="close-btn">').text('✘').appendTo('#wrapper')
   $('<h5>').text('Payment Sucessful').appendTo('#wrapper');
   $('<p>').text('Would you like to reserve seating?').appendTo('#wrapper');
-  $('<button>').text('Skip').appendTo('#wrapper');
+  $('<button id="skip-btn">').text('Skip').appendTo('#wrapper');
   $('<div>').text('stage').appendTo('#wrapper');
 
   $('<div id="seat-plan">').appendTo('#wrapper')
@@ -67,7 +69,21 @@ const renderSeats = function(talks, qty) {
     }).done(function(res) {
       console.log(res)
     })
+    $('#payment-form-modal').remove();
+    renderConfirmationForm();
   })
+
+  $('#skip-btn').click(function() {
+    // first remove modal background
+    $('#payment-form-modal').remove();
+    renderConfirmationForm();
+  });
+
+  $('.close-btn').click(function() {
+
+    $('#modal-wrapper').remove();
+
+  });
 }
 
 module.exports = renderSeats;
