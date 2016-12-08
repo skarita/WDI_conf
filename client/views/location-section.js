@@ -1,5 +1,4 @@
 const $ = require('jquery')
-const googleKey = "AIzaSyDq0YCpbd_tAV6UE_XFz-HNbXISiRTXoQ8"
 
 var renderLocationSection = function() {
 
@@ -15,20 +14,6 @@ var renderLocationSection = function() {
 
   // displaying google map with a marker of the location-top
   $('<div id="map">').appendTo('.location-bottom')
-
-  window.initMap = function() {
-  var uluru = {lat: -25.363, lng: 131.044};
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 15,
-    center: {lat: -37.818467, lng: 144.959096}
-  });
-  var marker = new google.maps.Marker({
-    position: {lat: -37.818467, lng: 144.959096},
-    map: map,
-    title: 'WDI CONF 2016'
-  });
- }
-
 }
 
 module.exports = renderLocationSection;
