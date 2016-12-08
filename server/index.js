@@ -7,6 +7,7 @@ const stripe = require("stripe")("sk_test_ySnrhITknKLkb1NjIbiSWYqI")
 const bodyparser = require('body-parser')
 const sendConfEmail = require('./scripts/send-email')
 const saveToDb = require('./scripts/save-user-to-db')
+var port = process.env.PORT || 3030
 
 // app.use(express.static('./scripts'));
 app.use(express.static(__dirname + '/../dist'));
@@ -82,4 +83,6 @@ app.post('/pay', bodyparser(), function(request, response) {
 });
 
 // Start server
-app.listen(3030)
+app.listen(port, function() {
+    console.log('App is running on http://localhost:' + port);
+});
